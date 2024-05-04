@@ -989,6 +989,9 @@ span {
   .home-content h1 {
     font-size: 4.5rem;
   }
+  .home-content h3 {
+    font-size: 4.5rem;
+  }
 }
 img {
   border-radius: 20px;
