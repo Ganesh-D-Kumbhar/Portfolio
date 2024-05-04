@@ -983,6 +983,13 @@ span {
     height: 0;
     width: 0;
   }
+  
+}
+@media (max-width: 290px) {
+  .about-img img {
+    height: 0;
+    width: 0;
+  }
   .home-content h1{
     font-size: 45px;
   }
