@@ -989,12 +989,8 @@ span {
     height: 0;
     width: 0;
   }
-  .home .home-content h3 {
-    font-size: 3rem; /* Adjust the font size as needed */
-    margin-top: 0; /* Adjust the margin top as needed */
-  }
-  .home .home-content h1{
-    font-size: 12rem;
-  }
+  .home-content{
+  margin-bottom: 100px;
+}
 }
 
