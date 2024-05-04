@@ -907,7 +907,6 @@ span {
   html {
     font-size: 50%;
   }
-
 .header{
     height: 60px;
     box-shadow: 2px 2px 6px var(--main-color);
@@ -915,7 +914,7 @@ span {
   .logo {
     margin-top: -10px;
   }
-
+ 
   .header img {
     margin-top: -10px;
   }
@@ -984,13 +983,13 @@ span {
     height: 0;
     width: 0;
   }
-  
 }
-@media (max-width: 290px){
-  .home .home-content h1{
-    font-size: 70px;
+
+@media (max-width: 315px) {
+  .home-content h1 {
+    font-size: 4.5rem;
   }
-  .home .home-content h3{
-    font-size: 70px;
-  }
+}
+img {
+  border-radius: 20px;
 }
