@@ -921,7 +921,7 @@ span {
     left: 80vw;
   }
   .home-content{
-  margin-bottom: 1000px;
+  margin-top: -100px;
 }
   .home-content .social-media a {
     margin: -10px 5px -20px 5px;
