@@ -985,16 +985,16 @@ span {
   }
   
 }
-@media (max-width: 290px) {
+@media (max-width: 286px) {
   .about-img img {
     height: 0;
     width: 0;
   }
   .home-content h1{
-    font-size: 45px;
+    font-size: 70px;
   }
   .home-content h3{
-    font-size: 30px;
+    font-size: 65px;
     margin-top: 0;
   }
 }
