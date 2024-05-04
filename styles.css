@@ -65,7 +65,7 @@ body {
   left: 93vw;
 }
 .header img:hover{
-  cursor: pointer;
+  cursor: pointer; 
 }
 .header.sticky {
   background: var(--bg-color);
@@ -912,7 +912,9 @@ span {
   .logo {
     margin-top: -10px;
   }
- 
+ .home #cv{
+   margin-bottom: 75px;
+ }
   .header img {
     margin-top: -10px;
   }
