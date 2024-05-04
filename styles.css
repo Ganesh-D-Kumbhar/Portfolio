@@ -914,11 +914,11 @@ span {
   .logo {
     margin-top: -10px;
   }
- .home h3{
+ .home-content h3{
    margint-top: -150px;
    font-size:  25px;
  }
-  .home h1{
+  .home-content h1{
     font-size: 30px; 
   }
   .header img {
