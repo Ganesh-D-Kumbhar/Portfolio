@@ -904,9 +904,7 @@ span {
 }
 
 @media (max-width: 450px) {
-  html {
-    font-size: 50%;
-  }
+ 
 .header{
     height: 60px;
     box-shadow: 2px 2px 6px var(--main-color);
@@ -985,14 +983,3 @@ span {
   }
 }
 
-@media (max-width: 315px) {
-  .home-content h1 {
-    font-size: 4.5rem;
-  }
-  .home-content h3 {
-    font-size: 4.5rem;
-  }
-}
-img {
-  border-radius: 20px;
-}
