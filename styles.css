@@ -914,13 +914,7 @@ span {
   .logo {
     margin-top: -10px;
   }
- .home-content h3 {
-  font-size: 20px;
-}
-
-.home-content h1 {
-  font-size: 25px;
-}
+ 
   .header img {
     margin-top: -10px;
   }
@@ -989,26 +983,12 @@ span {
     height: 0;
     width: 0;
   }
-}
-
-@media (max-width: 315px) {
-  .home-content h1 {
-    font-size: 4.5rem;
-  }
-}
-img {
-  border-radius: 20px;
-}
-@media (max-width: 290px) {
-  .about-img img {
-    height: 0;
-    width: 0;
+  .home-content h1{
+    font-size: 45px;
   }
   .home-content h3{
-    font-size: 20px;
-    
-  }
-  .home-content h1{
     font-size: 30px;
+    margin-top: 0;
   }
 }
+
