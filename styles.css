@@ -907,6 +907,9 @@ span {
   html {
     font-size: 50%;
   }
+  .home-content h1{
+    font-size: 75%;
+  }
 .header{
     height: 60px;
     box-shadow: 2px 2px 6px var(--main-color);
