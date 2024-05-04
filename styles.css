@@ -988,9 +988,9 @@ span {
 }
 @media (max-width: 290px){
   .home .home-content h1{
-    font-size: 70px
+    font-size: 70px;
   }
   .home .home-content h3{
-    font-size: 70px
+    font-size: 70px;
   }
 }
