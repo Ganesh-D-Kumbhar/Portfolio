@@ -985,7 +985,7 @@ span {
   }
   
 }
-@media (max-width: 286px) {
+@media (max-width: 290px) {
   .about-img img {
     height: 0;
     width: 0;
