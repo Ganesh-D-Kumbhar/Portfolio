@@ -915,11 +915,11 @@ span {
     margin-top: -10px;
   }
   .home-content h1{
-    font-size: 70px;
+    font-size: 100px;
   }
   .home-content h3{
-    font-size: 65px;
-    margin-top: 0;
+    font-size: 85px;
+    margin-top: -100px;
   }
   .header img {
     margin-top: -10px;
@@ -991,11 +991,3 @@ span {
   }
   
 }
-@media (max-width: 290px) {
-  .about-img img {
-    height: 0;
-    width: 0;
-  }
- 
-}
-
