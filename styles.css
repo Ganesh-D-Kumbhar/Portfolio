@@ -907,18 +907,7 @@ span {
   html {
     font-size: 50%;
   }
- .home-content h3 {
-  font-size: 3.2rem;
-  font-weight: 700;
-  line-height: 1.5;
-}
 
-.home-content h1 {
-  font-size: 5rem;
-  font-weight: 700;
-  margin-bottom: 0.3rem;
-  line-height: 1;
-}
 .header{
     height: 60px;
     box-shadow: 2px 2px 6px var(--main-color);
@@ -996,4 +985,12 @@ span {
     width: 0;
   }
   
+}
+@media (max-width: 290px){
+  .home .home-content h1{
+    font-size: 70px
+  }
+  .home .home-content h3{
+    font-size: 70px
+  }
 }
