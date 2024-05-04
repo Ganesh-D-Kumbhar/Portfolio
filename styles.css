@@ -981,17 +981,17 @@ span {
     width: 0;
   }
 }
-@media (max-width: 286px) {
+@media (max-width: 290px) {
   .about-img img {
     height: 0;
     width: 0;
   }
   .home .home-content h3 {
-    font-size: 2rem; /* Adjust the font size as needed */
+    font-size: 3rem; /* Adjust the font size as needed */
     margin-top: 0; /* Adjust the margin top as needed */
   }
   .home .home-content h1{
-    font-size: 10rem;
+    font-size: 12rem;
   }
 }
 
