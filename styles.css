@@ -914,7 +914,13 @@ span {
   .logo {
     margin-top: -10px;
   }
- 
+ .home h3{
+   margint-top: -50px;
+   font-size:  25px;
+ }
+  .home h1{
+    font-size: 30px; 
+  }
   .header img {
     margin-top: -10px;
   }
