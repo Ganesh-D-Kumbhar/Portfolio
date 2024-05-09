@@ -290,17 +290,18 @@
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me!</span></h2>
 
-        <form action="#">
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+            <input type="hidden" name="access_key" value="f0d51e85-7006-4ad4-a4ec-86330d610401">
             <div class="input-box">
-                <input type="text" placeholder="Full Name">
-                <input type="email" placeholder="Email Address">
+                <input name="fullName" id="name" type="text" placeholder="Full Name">
+                <input name="email"  id="email" type="email" placeholder="Email Address">
             </div>
             <div class="input-box">
-                <input type="number" placeholder="Mobile Number">
-                <input type="text" placeholder="Email Subject">
+                <input name="mobNo" id="mobNo"  type="number" placeholder="Mobile Number">
+                <input name="sub" id="sub" type="text" placeholder="Email Subject">
             </div>
-            <textarea name="" id="" cols="30" rows="5" placeholder="Your Message"></textarea>
-            <input type="submit" value="Send Message" class="btn">
+            <textarea name="msg" id="msg" cols="30" rows="5" placeholder="Your Message"></textarea>
+            <input id="btn" type="submit" value="Send Message" class="btn">
         </form>
     </section>
 
@@ -314,7 +315,7 @@
             <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
         </div>
     </footer>
-
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="script.js"></script>
 </body>
 
