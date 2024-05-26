@@ -29,6 +29,7 @@
   --text-color: rgb(253, 253, 253);
   --shadow-color: rgba(0, 0, 0, 0.7);
 }
+
 .dark-mode #dev {
   color: white;
 }
@@ -65,7 +66,7 @@ body {
   left: 93vw;
 }
 .header img:hover{
-  cursor: pointer; 
+  cursor: pointer;
 }
 .header.sticky {
   background: var(--bg-color);
@@ -629,6 +630,7 @@ span {
 .footer-text p {
   font-size: 1.6rem;
   color: var(--white-color);
+  
 }
 
 .footer-iconTop a {
@@ -904,14 +906,18 @@ span {
 }
 
 @media (max-width: 450px) {
- 
+  html {
+    font-size: 50%;
+  }
 .header{
     height: 60px;
     box-shadow: 2px 2px 6px var(--main-color);
 }
+
   .logo {
     margin-top: -10px;
   }
+ 
   .header img {
     margin-top: -10px;
   }
@@ -920,9 +926,6 @@ span {
     top: 20px;
     left: 80vw;
   }
- .home-content{
-   margin-top: -50px;
- }
   .home-content .social-media a {
     margin: -10px 5px -20px 5px;
   }
@@ -985,4 +988,11 @@ span {
   }
 }
 
-
+@media (max-width: 315px) {
+  .home-content h1 {
+    font-size: 4.5rem;
+  }
+}
+img {
+  border-radius: 20px;
+}
