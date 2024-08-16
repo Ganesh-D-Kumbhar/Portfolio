@@ -500,6 +500,9 @@ span {
 .subHeading {
   margin-left: 5px;
 }
+.dark-mode .subHeading{
+  color: var(--white-color);
+}
 .subHeading .bk {
   color: var(--main-color);
 }
