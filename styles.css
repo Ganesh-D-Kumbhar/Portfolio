@@ -59,10 +59,9 @@ body {
   transition: 0.5s;
 }
 .header img {
-  height: 45px;
-  width: 45px;
+  height: 35px;
   position: fixed;
-  top: 25px;
+  top: 32px;
   left: 93vw;
 }
 .header img:hover{
