@@ -518,7 +518,7 @@ span {
   height: 97%;
 }
 .jsFill {
-  width: 80%;
+  width: 85%;
 }
 .javaFill {
   width: 70%;
@@ -536,13 +536,19 @@ span {
   width: 70%;
 }
 .reactFill {
-  width: 70%;
+  width: 78%;
+}
+.redux{
+  width: 78%;
 }
 .mysqlFill {
   width: 65%;
 }
 .gitFill {
   width: 70%;
+}
+.testAndDebug{
+  width: 88%;
 }
 .skills h1 {
   margin-top: 25px;
