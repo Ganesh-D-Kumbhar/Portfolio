@@ -59,10 +59,9 @@ body {
   transition: 0.5s;
 }
 .header img {
-  height: 45px;
-  width: 45px;
+  height: 35px;
   position: fixed;
-  top: 25px;
+  top: 32px;
   left: 93vw;
 }
 .header img:hover{
@@ -87,10 +86,6 @@ body {
 }
 .navbar {
   margin-right: -30px;
-}
-#navlogo img{
-  height: 100px ;
-  width: 100px ;
 }
 .navbar a {
   position: relative;
@@ -505,6 +500,9 @@ span {
 .subHeading {
   margin-left: 5px;
 }
+.dark-mode .subHeading{
+  color: var(--white-color);
+}
 .subHeading .bk {
   color: var(--main-color);
 }
@@ -520,7 +518,7 @@ span {
   height: 97%;
 }
 .jsFill {
-  width: 80%;
+  width: 85%;
 }
 .javaFill {
   width: 70%;
@@ -538,13 +536,19 @@ span {
   width: 70%;
 }
 .reactFill {
-  width: 70%;
+  width: 78%;
+}
+.redux{
+  width: 78%;
 }
 .mysqlFill {
   width: 65%;
 }
 .gitFill {
   width: 70%;
+}
+.testAndDebug{
+  width: 88%;
 }
 .skills h1 {
   margin-top: 25px;

@@ -3,11 +3,11 @@ let mode = document.getElementById('mode');
 let navbar = document.querySelector('.navbar');
 let body = document.getElementById('bd');
 mode.onclick = () => {
-    if (body.className === "bright") {
+    if(body.className === "bright"){
         body.className = 'dark-mode';
         mode.src = "images/sun.png";
     }
-    else {
+  else{
         body.className = 'bright';
         mode.src = "images/moon.png";
     }
@@ -40,9 +40,9 @@ window.onscroll = () => {
     header.classList.toggle('sticky', window.scrollY > 100);
 
 
-    // /*========== remove menu icon navbar when click navbar link (scroll) ==========*/
-    // menuIcon.classList.remove('bx-x');
-    // navbar.classList.remove('active');
+    /*========== remove menu icon navbar when click navbar link (scroll) ==========*/
+    menuIcon.classList.remove('bx-x');
+    navbar.classList.remove('active');
 
 };
- 
+
