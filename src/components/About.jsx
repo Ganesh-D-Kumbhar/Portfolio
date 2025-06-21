@@ -6,13 +6,13 @@ const About = () => {
       </div>
 
       <div className="about-content">
-        <h2 className="heading">
+        <h2 className="heading font-bold">
           About <span>Me</span>
         </h2>
         <br />
         <br />
         <div className="mobile-view-about-img">
-          <img src="/images/about.png" alt="" />
+          <img src="/images/about.png" alt=""  className=" !w-[70vw]" />
         </div>
         <h3>
           Hi there, welcome to my website! I'm Ganesh Kumbhar, a passionate web developer who enjoys learning new

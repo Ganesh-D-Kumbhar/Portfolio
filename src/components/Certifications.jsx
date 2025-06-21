@@ -46,7 +46,7 @@ const Certifications = () => {
 
   return (
     <section className="certifications" id="certifications">
-      <h2 className="heading">
+      <h2 className="heading font-bold">
         My <span>Certifications</span>
       </h2>
 

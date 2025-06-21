@@ -51,7 +51,7 @@ const Projects = () => {
 
   return (
     <section className="projects" id="projects">
-      <h2 className="heading">
+      <h2 className="heading font-bold">
         Latest <span>Project</span>
       </h2>
 
