@@ -1,0 +1,28 @@
+:root {
+  --bg-color: rgb(253, 253, 253);
+  --text-color: rgb(51, 51, 51);
+  --main-color: rgb(117, 78, 249);
+  --white-color: rgb(253, 253, 253);
+  --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 45vh solid var(--main-color);
+  border-right: 350px solid var(--main-color);
+  border-bottom: 45vh solid var(--main-color);
+  border-left: 350px solid transparent;
+  margin-right: -120px;
+}
+.home-img img {
+  position: absolute;
+  top: 55px !important;
+  left: 160px;
+  pointer-events: none;
+  max-width: 480px;
+  max-height: 100vh;
+}

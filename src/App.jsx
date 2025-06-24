@@ -2,14 +2,14 @@
 
 import { useState, useEffect } from "react"
 import Header from "./components/Header"
-import Home from "./components/Home"
+import Home from "./components/home/Home.jsx"
 import About from "./components/About"
 import Certifications from "./components/Certifications"
 import Projects from "./components/Projects"
 import Skills from "./components/skills/Skills.jsx"
 import Contact from "./components/Contact"
 import Footer from "./components/Footer"
-import "./App.css"
+// import "./App.css"
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
