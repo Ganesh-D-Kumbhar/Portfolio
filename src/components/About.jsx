@@ -148,7 +148,7 @@ const About = () => {
     <section
       id="about"
       ref={containerRef}
-      className="relative min-h-screen bg-black py-20 overflow-hidden"
+      className="relative min-h-screen bg-black  overflow-hidden pt-8"
       aria-label="About Ganesh Kumbhar - Full Stack Developer"
     >
       {/* Enhanced Background Elements */}
@@ -248,16 +248,6 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-24"
         >
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center space-x-2 bg-gradient-to-r from-[rgb(117,78,249)]/20 to-[rgb(147,108,255)]/20 backdrop-blur-xl border border-[rgb(117,78,249)]/30 rounded-full px-6 py-3 mb-8"
-          >
-            <Sparkles className="w-5 h-5 text-[rgb(117,78,249)]" />
-            <span className="text-[rgb(117,78,249)] font-medium">Get to know me</span>
-          </motion.div>
 
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-tight">
             About{" "}
