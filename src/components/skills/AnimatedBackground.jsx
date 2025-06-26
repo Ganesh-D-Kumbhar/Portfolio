@@ -1,5 +1,3 @@
-"use client"
-
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 
@@ -20,7 +18,7 @@ export const AnimatedBackground = () => {
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Gradient Orbs */}
       <motion.div
-        className="absolute -top-40 -left-40 w-80 h-80 rounded-full opacity-20"
+        className="absolute -top-40 -left-40 w-[900px] h-[900px] rounded-full opacity-20"
         style={{
           background: "radial-gradient(circle, rgb(117, 78, 249) 0%, transparent 70%)",
         }}
@@ -36,7 +34,7 @@ export const AnimatedBackground = () => {
       />
 
       <motion.div
-        className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full opacity-15"
+        className="absolute -bottom-40 -right-40  w-[900px] h-[900px] rounded-full opacity-15"
         style={{
           background: "radial-gradient(circle, rgb(117, 78, 249) 0%, transparent 70%)",
         }}

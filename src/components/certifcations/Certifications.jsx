@@ -12,6 +12,7 @@ import {
   Target,
   BookOpen,
 } from "lucide-react"
+import { AnimatedBackground } from "../skills/AnimatedBackground.jsx"
 
 const Certifications = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null)
@@ -104,38 +105,7 @@ const Certifications = () => {
   return (
     <section className="min-h-screen bg-black py-20 px-4 relative overflow-hidden">
       {/* Enhanced Background Elements */}
-      <div className="absolute inset-0">
-        {/* Left side decorative elements */}
-        <div className="absolute left-0 top-0 w-1/4 h-full">
-          <div className="absolute top-20 left-10 w-32 h-32 bg-purple-600/5 rounded-full blur-2xl"></div>
-          <div className="absolute top-1/3 left-20 w-24 h-24 bg-purple-500/10 rounded-full blur-xl"></div>
-          <div className="absolute bottom-1/4 left-8 w-40 h-40 bg-purple-700/5 rounded-full blur-3xl"></div>
-
-          {/* Floating particles */}
-          <div className="absolute top-32 left-16 w-2 h-2 bg-[rgb(117,78,249)] rounded-full animate-pulse"></div>
-          <div className="absolute top-1/2 left-12 w-1 h-1 bg-white rounded-full animate-ping"></div>
-          <div className="absolute bottom-40 left-24 w-1.5 h-1.5 bg-[rgba(117,78,249, 0.8)] rounded-full animate-pulse delay-300"></div>
-        </div>
-
-        {/* Right side decorative elements */}
-        <div className="absolute right-0 top-0 w-1/4 h-full">
-          <div className="absolute top-40 right-10 w-28 h-28 bg-purple-600/5 rounded-full blur-2xl"></div>
-          <div className="absolute top-2/3 right-16 w-36 h-36 bg-purple-500/8 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-32 right-12 w-20 h-20 bg-purple-700/10 rounded-full blur-xl"></div>
-
-          {/* Floating particles */}
-          <div className="absolute top-1/4 right-20 w-1 h-1 bg-white rounded-full animate-ping delay-700"></div>
-          <div className="absolute bottom-20 right-8 w-2 h-2 bg-[rgb(117,78,249)] rounded-full animate-pulse delay-500"></div>
-          <div className="absolute top-3/4 right-24 w-1.5 h-1.5 bg-[rgb(117,78,249)] rounded-full animate-pulse delay-1000"></div>
-        </div>
-
-        {/* Connecting lines */}
-        <div className="absolute top-1/4 left-1/4 w-1/2 h-px bg-gradient-to-r from-transparent via-[rgb(63,38,146)] to-transparent"></div>
-        <div className="absolute bottom-1/3 left-1/4 w-1/2 h-px bg-gradient-to-r from-transparent via-[rgb(34,19,83)]  to-transparent"></div>
-
-        {/* Central gradient overlays */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-indigo-900/10 via-transparent to-indigo-900/5"></div>
-      </div>
+          <AnimatedBackground />
 
       <div className="max-w-full mx-auto relative z-10">
         {/* Header Section with Side Content */}

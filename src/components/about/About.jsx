@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion"
-import PopUpForm from "./forms/PopUpForm.jsx"
+import PopUpForm from "../forms/PopUpForm.jsx"
 import {
   Award,
   MapPin,
@@ -24,6 +24,7 @@ import {
   ArrowRight,
 } from "lucide-react"
 import { useRef, useState } from "react"
+import { AnimatedBackground } from "../skills/AnimatedBackground.jsx"
 
 const About = () => {
   const containerRef = useRef(null)
@@ -152,8 +153,8 @@ const About = () => {
       aria-label="About Ganesh Kumbhar - Full Stack Developer"
     >
       {/* Enhanced Background Elements */}
-      <div className="absolute inset-0">
-        {/* Primary Gradient Orbs */}
+      {/* <div className="absolute inset-0">
+        
         <motion.div
           style={{ y }}
           className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-[rgb(117,78,249)]/30 to-[rgb(147,108,255)]/30 rounded-full blur-3xl"
@@ -182,7 +183,6 @@ const About = () => {
           }}
         />
 
-        {/* Secondary Accent Orbs */}
         <motion.div
           className="absolute top-1/3 right-1/4 w-64 h-64 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 rounded-full blur-2xl"
           animate={{
@@ -197,7 +197,6 @@ const About = () => {
           }}
         />
 
-        {/* Animated Grid Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0"
@@ -211,7 +210,6 @@ const About = () => {
           />
         </div>
 
-        {/* Enhanced Floating Particles */}
         {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
@@ -237,7 +235,8 @@ const About = () => {
             }}
           />
         ))}
-      </div>
+      </div> */}
+      <AnimatedBackground />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Enhanced Header Section */}

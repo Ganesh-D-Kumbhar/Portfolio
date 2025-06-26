@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { Linkedin, Github, Instagram, Download, Code, Palette, Video, Monitor, Mail } from "lucide-react"
+import { AnimatedBackground } from "../skills/AnimatedBackground.jsx";
+
 
 const professions = [
   { name: "Web Developer", icon: Monitor },
@@ -36,9 +38,10 @@ export default function Home() {
   return (
     <section className="relative max-h[100vh-84px] bg-black flex items-center overflow-hidden mt-16 lg:mt-20">
       {/* Subtle Background Effects */}
-      <div className="absolute inset-0">
+      {/* <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-64 h-64 rounded-full blur-3xl opacity-5 animate-pulse bg-[rgb(117,78,249)]" />
-      </div>
+      </div> */}
+      <AnimatedBackground/>
 
       <div className="container mx-auto px-4 sm:px-8 relative z-10 mt-4 lg:mt-0">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">

@@ -1,15 +1,12 @@
-"use client"
-
 import { useState, useEffect } from "react"
-import Header from "./components/Header"
+import Navbar from "./components/navbar/Navbar.jsx"
 import Home from "./components/home/Home.jsx"
-import About from "./components/About"
-import Certifications from "./components/Certifications"
-import Projects from "./components/Projects"
+import About from "./components/about/About.jsx"
+import Certifications from "./components/certifcations/Certifications.jsx"
+import Projects from "./components/projects/Projects.jsx"
 import Skills from "./components/skills/Skills.jsx"
-import Contact from "./components/Contact"
-import Footer from "./components/Footer"
-// import "./App.css"
+import Contact from "./components/contact/Contact.jsx"
+import Footer from "./components/footer/Footer.jsx"
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
@@ -54,8 +51,8 @@ function App() {
   }
 
   return (
-    <div id="bd" className={darkMode ? "dark-mode" : "bright"}>
-      <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} activeSection={activeSection} />
+    <div  id="bd" className={darkMode ? "dark-mode" : "bright relative !overflow-x-hidden"}>
+      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} activeSection={activeSection} />
       <Home />
       <About />
       <Certifications />
