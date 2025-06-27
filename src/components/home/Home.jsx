@@ -140,7 +140,7 @@ export default function Home() {
               transition={{ delay: 0.6, duration: 0.6 }}
             >
               {[
-                { href: "https://www.linkedin.com/in/ganesh-d-kumbhar/", icon: Linkedin },
+                { href: "https://www.linkedin.com/in/ganesh-d-kumbhar", icon: Linkedin },
                 { href: "https://github.com/Ganesh-D-Kumbhar", icon: Github },
                 {
                   href: "https://www.instagram.com/ganesh_kumbhar_211/profilecard/?igsh=MXFzbTNjNDJvcXByOA==",
