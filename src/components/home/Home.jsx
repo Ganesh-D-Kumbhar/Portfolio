@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { Linkedin, Github, Instagram, Download, Code, Palette, Video, Monitor, Mail } from "lucide-react"
 import { AnimatedBackground } from "../skills/AnimatedBackground.jsx";
-
+import PopUpForm from "../forms/PopUpForm.jsx";
 
 const professions = [
   { name: "Web Developer", icon: Monitor },
@@ -14,6 +14,7 @@ const professions = [
 export default function Home() {
   const controls = useAnimation();
   const [angle, setAngle] = useState(0);
+  const [currentProfession, setCurrentProfession] = useState("");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -35,13 +36,15 @@ export default function Home() {
     return () => clearInterval(interval)
   }, [])
 
+  const [isFormOpen, setIsFormOpen] = useState(false)
+  const handleDownloadClick = () => {
+    setIsFormOpen(true)
+  }
+  const [isResume, setIsResume] = useState(false)
+
   return (
-    <section className="relative max-h[100vh-84px] bg-black flex items-center overflow-hidden mt-16 lg:mt-20">
-      {/* Subtle Background Effects */}
-      {/* <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-64 h-64 rounded-full blur-3xl opacity-5 animate-pulse bg-[rgb(117,78,249)]" />
-      </div> */}
-      <AnimatedBackground/>
+    <section id="home" className="relative max-h[100vh-84px] bg-black flex items-center overflow-hidden mt-16 lg:mt-20">
+      <AnimatedBackground />
 
       <div className="container mx-auto px-4 sm:px-8 relative z-10 mt-4 lg:mt-0">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -165,27 +168,17 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.6 }}
               >
-                <motion.a
-                  href="https://drive.google.com/file/d/1hgJriQ9y8RXgzvi-eIgF2VN4yUjWBbp5/view?usp=sharing"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center px-6 py-3 text-base sm:text-lg font-semibold text-white rounded-full transition-all duration-300 bg-[rgb(117,78,249)] shadow-[0_20px_40px_rgba(117,78,249,0.3)] border border-white "
+                <div
+                  className="inline-flex items-center px-6 py-3 text-base sm:text-lg font-semibold text-white rounded-full transition-all duration-300 bg-[rgb(117,78,249)] shadow-[0_20px_40px_rgba(117,78,249,0.3)] border border-white cursor-pointer"
+                  onClick={() => {
+                    handleDownloadClick();
+                    setIsResume(true);
+                  }}
+
                 >
                   <Download className="w-5 h-5 sm:w-6 sm:h-6 mr-3" />
                   Download CV
-                </motion.a>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.6 }}
-              >
-                <span
-                  className="inline-flex items-center px-6 py-3 text-base sm:text-lg font-semibold text-white rounded-full transition-all duration-300 bg-[rgb(117,78,249)] shadow-[0_20px_40px_rgba(117,78,249,0.3)] border border-white cursor-pointer"
-                >
-                  <Mail className="w-5 h-5 sm:w-6 sm:h-6 mr-3" />
-                  Contact Me
-                </span>
+                </div>
               </motion.div>
             </div>
           </motion.div>
@@ -252,6 +245,7 @@ export default function Home() {
           </motion.div>
         </div>
       </div>
+      <PopUpForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} isResume={isResume} />
     </section>
   )
 }

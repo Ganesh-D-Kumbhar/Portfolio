@@ -7,6 +7,9 @@ import Projects from "./components/projects/Projects.jsx"
 import Skills from "./components/skills/Skills.jsx"
 import Contact from "./components/contact/Contact.jsx"
 import Footer from "./components/footer/Footer.jsx"
+import ToastProvider from "./components/toaster/ToastProvider.jsx"
+import ExperienceSection from "./components/experience/ExperienceSection.jsx"
+import EducationSection from "./components/education/EducationSection.jsx"
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
@@ -51,13 +54,16 @@ function App() {
   }
 
   return (
-    <div  id="bd" className={darkMode ? "dark-mode" : "bright relative !overflow-x-hidden"}>
+    <div id="bd" className={darkMode ? "dark-mode" : "bright relative !overflow-x-hidden"}>
+      <ToastProvider />
       <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} activeSection={activeSection} />
       <Home />
       <About />
+      <ExperienceSection />
+      <EducationSection />
+      <Skills />
       <Certifications />
       <Projects />
-      <Skills />
       <Contact />
       <Footer />
     </div>

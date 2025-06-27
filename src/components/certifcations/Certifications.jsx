@@ -103,7 +103,7 @@ const Certifications = () => {
   }
 
   return (
-    <section className="min-h-screen bg-black py-20 px-4 relative overflow-hidden">
+    <section id="certifications" className="min-h-screen bg-black py-20 px-4 relative overflow-hidden">
       {/* Enhanced Background Elements */}
           <AnimatedBackground />
 

@@ -33,47 +33,6 @@ const About = () => {
     offset: ["start end", "end start"],
   })
 
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100])
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
-
-  const achievements = [
-    {
-      icon: Trophy,
-      title: "Gold Badge",
-      subtitle: "JavaScript & Java",
-      platform: "HackerRank",
-      color: "from-yellow-400 to-yellow-600",
-      glow: "shadow-yellow-500/25",
-      bgGlow: "from-yellow-400/10 to-yellow-600/10",
-    },
-    {
-      icon: Star,
-      title: "90+ Scores",
-      subtitle: "Mathematics Excellence",
-      platform: "SSC, HSC, Engineering",
-      color: "from-blue-400 to-blue-600",
-      glow: "shadow-blue-500/25",
-      bgGlow: "from-blue-400/10 to-blue-600/10",
-    },
-    {
-      icon: Code2,
-      title: "50+ Challenges",
-      subtitle: "Coding Problems",
-      platform: "HackerRank",
-      color: "from-green-400 to-green-600",
-      glow: "shadow-green-500/25",
-      bgGlow: "from-green-400/10 to-green-600/10",
-    },
-    {
-      icon: GraduationCap,
-      title: "8.4 CGPA",
-      subtitle: "B.Tech Degree",
-      platform: "Electronics & Telecom",
-      color: "from-purple-400 to-purple-600",
-      glow: "shadow-purple-500/25",
-      bgGlow: "from-purple-400/10 to-purple-600/10",
-    },
-  ]
 
   const certifications = [
     { name: "React", platform: "HackerRank", date: "June 2024", verified: true },
@@ -248,7 +207,7 @@ const About = () => {
           className="text-center mb-24"
         >
 
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-tight">
+          <h1 className="text-6xl md:text-7xl  text-white mb-8 font-bold">
             About{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-[rgb(117,78,249)] to-[rgb(147,108,255)] bg-clip-text text-transparent">

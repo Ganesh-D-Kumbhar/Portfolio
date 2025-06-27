@@ -55,7 +55,7 @@ const Contact = () => {
   ]
 
   return (
-    <section className="relative min-h-screen  px-4 sm:px-6 md:px-8 lg:px-16 xl:px-36 overflow-hidden bg-black w-full">
+    <section id="contact"  className="relative min-h-screen  px-4 sm:px-6 md:px-8 lg:px-16 xl:px-36 overflow-hidden bg-black w-full py-10">
       <AnimatedBackground />
 
       <div className="relative z-10 mx-auto max-w-7xl">
@@ -121,7 +121,7 @@ const Contact = () => {
         {/* Main Content - Side by Side Layout */}
         <div className="grid lg:grid-cols-5 gap-12 items-start">
           {/* Contact Form - Takes 3 columns */}
-          <div className="lg:col-span-3">
+          <div  className="lg:col-span-3">
             <ContactForm />
           </div>
 

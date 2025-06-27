@@ -41,9 +41,9 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
   const navItems = [
     { href: "#home", label: "Home", icon: Home },
     { href: "#about", label: "About", icon: User },
+    { href: "#skills", label: "Skills", icon: Code },
     { href: "#certifications", label: "Certifications", icon: Award },
     { href: "#projects", label: "Projects", icon: FolderOpen },
-    { href: "#skills", label: "Skills", icon: Code },
     { href: "#contact", label: "Contact", icon: Mail },
   ]
 
@@ -94,8 +94,8 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                     handleNavClick(item.href)
                   }}
                   className={`relative flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 group ${isActive
-                      ? "text-white border-[rgb(117, 78, 249)]  border-b-2 "
-                      : "text-gray-300"
+                    ? "text-white border-[rgb(117, 78, 249)]  border-b-2 "
+                    : "text-gray-300"
                     }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -215,8 +215,8 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                       handleNavClick(item.href)
                     }}
                     className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-300 ${isActive
-                        ? "text-white bg-gradient-to-r from-purple-600 to-purple-500 shadow-lg shadow-purple-500/25"
-                        : "text-gray-300 hover:text-white hover:bg-purple-500/10"
+                      ? "text-white bg-gradient-to-r from-purple-600 to-purple-500 shadow-lg shadow-purple-500/25"
+                      : "text-gray-300 hover:text-white hover:bg-purple-500/10"
                       }`}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}

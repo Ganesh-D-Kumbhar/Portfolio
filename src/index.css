@@ -1,9 +1,4 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
 
 @layer utilities {
   .animate-spin-slow {
@@ -73,4 +68,72 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(to bottom, rgba(117, 78, 249, 0.9), rgb(117, 78, 249));
+}
+
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-from-bottom-4 {
+  from {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-in {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+}
+
+.fade-in {
+  animation-name: fade-in;
+}
+
+.slide-in-from-bottom-4 {
+  animation-name: slide-in-from-bottom-4;
+}
+
+/* Custom toast styles */
+.Toastify__toast {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+  z-index: 10000 !important;
+}
+
+.Toastify__toast--error {
+  background: white !important;
+  color: black !important;
+}
+
+.Toastify__toast--error .Toastify__toast-icon svg {
+  fill: red !important;
+}
+
+.Toastify__progress-bar--error {
+  background: #ff0000 !important;
+}
+
+
+/* SUCCESS Toast */
+.Toastify__toast--success {
+  background: #00b300 !important;  /* Solid green background */
+  color: white !important;
+}
+
+.Toastify__toast--success .Toastify__toast-icon svg {
+  fill: white !important;          /* White icon */
+}
+
+.Toastify__progress-bar--success {
+  background: #00cc00 !important;  /* Bright green progress bar */
 }

@@ -19,7 +19,7 @@ import {
   Workflow,
 } from "lucide-react"
 import { AnimatedBackground } from "../skills/AnimatedBackground.jsx"
-import PopUpForm from "../forms/PopUpForm.jsx"
+import ContactPopUpForm from "../forms/ContactPopUpForm.jsx"
 // Large Feature Card
 const FeatureCard = ({ title, skills, icon: Icon, gradient }) => {
   return (
@@ -155,13 +155,9 @@ const Skills = () => {
     { name: "Redux", icon: Workflow },
   ]
 
-  const [isFormOpen, setIsFormOpen] = useState(false)
-  const handleDownloadClick = () => {
-    setIsFormOpen(true)
-  }
-
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false)
   return (
-    <section className="relative min-h-screen py-12 md:py-20 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-36 overflow-hidden bg-black w-full">
+    <section id="skills" className="relative min-h-screen py-12 md:py-20 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-36 overflow-hidden bg-black w-full">
       <AnimatedBackground />
 
       <div className="relative z-10 mx-auto max-w-7xl">
@@ -172,15 +168,6 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.div
-            className="inline-flex items-center bg-indigo-500/10 border border-indigo-500/20 rounded-full px-4 md:px-6 py-2 mb-4 md:mb-6"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-indigo-400 mr-2" />
-            <span className="text-indigo-300 text-xs md:text-sm font-medium">Technical Expertise</span>
-          </motion.div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6">
             My <span className="text-indigo-500">Skills</span>
@@ -247,9 +234,9 @@ const Skills = () => {
           <motion.button
             className="inline-flex items-center bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl font-semibold text-base md:text-lg shadow-lg hover:shadow-indigo-500/25 hover:scale-105 transition-all duration-300 cursor-pointer"
             whileTap={{ scale: 0.95 }}
-            onClick={handleDownloadClick}
+            onClick={() => setIsContactPopupOpen(true)}
           >
-            <span>Let's Build Something Amazing</span>
+            <span>Let's Connect</span>
             <ArrowRight className="w-4 h-4 md:w-5 md:h-5 ml-2" />
           </motion.button>
         </motion.div>
@@ -279,7 +266,7 @@ const Skills = () => {
           </motion.div>
         </motion.div>
       </div>
-      <PopUpForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
+      <ContactPopUpForm isOpen={isContactPopupOpen} onClose={() => setIsContactPopupOpen(false)} />
     </section>
   )
 }
