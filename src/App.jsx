@@ -22,6 +22,7 @@ function App() {
   }, [darkMode])
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     const handleScroll = () => {
       const sections = document.querySelectorAll("section")
       const navLinks = document.querySelectorAll("header nav a")
@@ -47,6 +48,7 @@ function App() {
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
+
   }, [])
 
   const toggleDarkMode = () => {

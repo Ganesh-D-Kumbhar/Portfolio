@@ -109,7 +109,7 @@ const Footer = () => {
         </div>
         {/* Main Footer Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-24">
-          <div className="absolute top-8 h-[2px] w-full bg-gradient-to-r from-transparent via-gray-600 to-transparent" />
+          <div className="absolute top-8 h-[1px] w-full bg-gradient-to-r from-transparent via-gray-600 to-transparent" />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Brand Section */}
@@ -224,7 +224,7 @@ const Footer = () => {
           </div>
 
           {/* Divider */}
-          <div className="my-12 h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent" />
+          <div className=" my-4 top-20 w-full h-[1px] bg-gradient-to-r from-transparent via-gray-600 to-transparent" />
 
           {/* Bottom Section */}
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">

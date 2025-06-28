@@ -25,10 +25,10 @@ const ContactPopUpForm = ({ isOpen, onClose }) => {
         mobNo: Yup.string()
           .matches(/^[0-9]{10}$/, "Mobile number must be 10 digits")
           .required("Mobile number is required"),
-        sub: Yup.string()
-          .min(5, "Subject must be at least 5 characters")
-          .max(100, "Subject must be less than 100 characters")
-          .required("Subject is required"),
+        city: Yup.string()
+          .min(5, "City must be at least 3 characters")
+          .max(20, "City must be less than 20 characters")
+          .required("City is required"),
         msg: Yup.string()
           .min(10, "Message must be at least 10 characters")
           .max(500, "Message must be less than 500 characters")
@@ -64,7 +64,7 @@ const ContactPopUpForm = ({ isOpen, onClose }) => {
       fullName: "",
       email: "",
       mobNo: "",
-      sub: "",
+      city: "",
       msg: "",
     },
     validationSchema,
@@ -72,26 +72,17 @@ const ContactPopUpForm = ({ isOpen, onClose }) => {
       setIsSubmitting(true)
 
       const submissionData = {
-        formData: {
-          Name: values.fullName,
-          Email: values.email,
-          PhoneNumber: values.mobNo,
-          Subject: values.sub,
-          Message: values.msg,
-          PageUrl: pageUrl,
-          IP_Address: userIP,
-        },
-        to: "ganeshhh2003@gmail.com",
-        mailSubject: "Contact Form Submission",
-        userEmailSubject: "Thank you for contacting me",
-        contactNo: "+919096378354",
-        bannerTitle: "Contact Form",
+        fullName: values.fullName,
+        email: values.email,
+        mobNo: values.mobNo,
+        city: values.city,
+        msg: values.msg,
       }
 
       try {
         await axios.post(
-          `/api/contact-form`,
-          { submissionData },
+          `https://portfolio-form-backend-t69y.onrender.com/api/contact-form`,
+          submissionData,
           {
             headers: {
               "Content-Type": "application/json",
@@ -100,7 +91,7 @@ const ContactPopUpForm = ({ isOpen, onClose }) => {
           },
         )
 
-        toast.success("Thank you! Your message has been sent successfully. I'll get back to you soon!", {
+        toast.success("Form submitted successfully.", {
           position: "top-right",
           autoClose: 5000,
         })
@@ -242,16 +233,16 @@ const ContactPopUpForm = ({ isOpen, onClose }) => {
                   </div>
                   <input
                     type="text"
-                    name="sub"
+                    name="city"
                     placeholder="Subject"
                     className="w-full pl-12 pr-4 py-3 border border-gray-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-[rgb(117,78,249)] focus:border-transparent transition-all duration-200"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    value={formik.values.sub}
+                    value={formik.values.city}
                     disabled={isSubmitting}
                   />
-                  {formik.touched.sub && formik.errors.sub && (
-                    <div className="text-red-500 text-xs mt-1 ml-2">{formik.errors.sub}</div>
+                  {formik.touched.city && formik.errors.city && (
+                    <div className="text-red-500 text-xs mt-1 ml-2">{formik.errors.city}</div>
                   )}
                 </div>
               </div>

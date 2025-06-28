@@ -53,7 +53,7 @@ const PopUpForm = ({ isOpen, onClose }) => {
   const downloadResume = useCallback(() => {
     try {
       const link = document.createElement("a")
-      link.href = "/assets/pdfs/resume.pdf"
+      link.href = "/assets/UpdatedResume.pdf"
       link.download = "Ganesh-Kumbhar-Resume.pdf"
       link.style.display = "none"
       document.body.appendChild(link)
@@ -85,26 +85,17 @@ const PopUpForm = ({ isOpen, onClose }) => {
       setIsSubmitting(true)
 
       const submissionData = {
-        formData: {
-          Name: values.name,
-          Email: values.email,
-          PhoneNumber: values.phoneNumber,
-          City: values.city,
-          Message: values.message,
-          PageUrl: pageUrl,
-          IP_Address: userIP,
-        },
-        to: "ganeshhh2003@gmail.com",
-        mailSubject: "Resume Download Request",
-        userEmailSubject: "Thank you for downloading my resume",
-        contactNo: "+919096378354",
-        bannerTitle: "Resume Download",
+        fullName: values.name,
+        email: values.email,
+        mobNo: values.phoneNumber,
+        city: values.city,
+        msg: values.message,
       }
 
       try {
         await axios.post(
-          `/api/contact-form`,
-          { submissionData },
+          `https://portfolio-form-backend-t69y.onrender.com/contact-form`,
+          submissionData,
           {
             headers: {
               "Content-Type": "application/json",
@@ -113,7 +104,7 @@ const PopUpForm = ({ isOpen, onClose }) => {
           },
         )
 
-        toast.success("Thank you! Your submission was received. Download will start shortly.", {
+        toast.success("Form submitted successfully.", {
           position: "top-right",
           autoClose: 4000,
         })

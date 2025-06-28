@@ -126,12 +126,12 @@
 
 /* SUCCESS Toast */
 .Toastify__toast--success {
-  background: #00b300 !important;  /* Solid green background */
-  color: white !important;
+  background: white !important;  /* Solid green background */
+  color: black !important;
 }
 
 .Toastify__toast--success .Toastify__toast-icon svg {
-  fill: white !important;          /* White icon */
+  fill: rgb(1, 97, 1) !important;          /* White icon */
 }
 
 .Toastify__progress-bar--success {
