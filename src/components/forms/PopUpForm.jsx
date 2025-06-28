@@ -94,7 +94,7 @@ const PopUpForm = ({ isOpen, onClose }) => {
 
       try {
         await axios.post(
-          `https://portfolio-form-backend-t69y.onrender.com/contact-form`,
+          `https://portfolio-form-backend-t69y.onrender.com/api/contact-form`,
           submissionData,
           {
             headers: {
