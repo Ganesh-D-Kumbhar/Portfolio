@@ -1,15 +1,15 @@
-"use client"
-
 import { useState, useEffect } from "react"
-import Header from "./components/Header"
-import Home from "./components/Home"
-import About from "./components/About"
-import Certifications from "./components/Certifications"
-import Projects from "./components/Projects"
-import Skills from "./components/Skills"
-import Contact from "./components/Contact"
-import Footer from "./components/Footer"
-import "./App.css"
+import Navbar from "./components/navbar/Navbar.jsx"
+import Home from "./components/home/Home.jsx"
+import About from "./components/about/About.jsx"
+import Certifications from "./components/certifcations/Certifications.jsx"
+import Projects from "./components/projects/Projects.jsx"
+import Skills from "./components/skills/Skills.jsx"
+import Contact from "./components/contact/Contact.jsx"
+import Footer from "./components/footer/Footer.jsx"
+import ToastProvider from "./components/toaster/ToastProvider.jsx"
+import ExperienceSection from "./components/experience/ExperienceSection.jsx"
+import EducationSection from "./components/education/EducationSection.jsx"
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
@@ -22,6 +22,7 @@ function App() {
   }, [darkMode])
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     const handleScroll = () => {
       const sections = document.querySelectorAll("section")
       const navLinks = document.querySelectorAll("header nav a")
@@ -47,6 +48,7 @@ function App() {
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
+
   }, [])
 
   const toggleDarkMode = () => {
@@ -54,13 +56,16 @@ function App() {
   }
 
   return (
-    <div id="bd" className={darkMode ? "dark-mode" : "bright"}>
-      <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} activeSection={activeSection} />
+    <div id="bd" className={darkMode ? "dark-mode" : "bright relative !overflow-x-hidden"}>
+      <ToastProvider />
+      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} activeSection={activeSection} />
       <Home />
       <About />
+      <ExperienceSection />
+      <EducationSection />
+      <Skills />
       <Certifications />
       <Projects />
-      <Skills />
       <Contact />
       <Footer />
     </div>
