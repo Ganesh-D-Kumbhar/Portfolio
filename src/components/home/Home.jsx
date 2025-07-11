@@ -136,10 +136,10 @@ export default function Home() {
             style={{ animationDelay: "300ms" }}
           >
             {/* Custom Overlay Shape */}
-            <div className="absolute top-0 right-0 w-0 h-0 border-t-[50vh] border-r-[350px] border-b-[50vh] border-l-[350px] border-t-[rgb(117,78,249)] border-r-[rgb(117,78,249)] border-b-[rgb(117,78,249)] border-l-transparent -mr-[120px] !z-30 overflow-hidden" />
+            <div className="absolute top-0 right-0 w-0 h-0 border-t-[48vh] border-r-[350px] border-b-[48vh] border-l-[350px] border-t-[rgb(117,78,249)] border-r-[rgb(117,78,249)] border-b-[rgb(117,78,249)] border-l-transparent -mr-[120px] !z-30 overflow-hidden" />
 
             {/* Home Image - Positioned to align bottom with overlay shape bottom */}
-            <div className="absolute bottom-0 left-[180px] pointer-events-none min-w-[580px] max-h-screen !z-40">
+            <div className="absolute bottom-22 translate-y-[2px] left-[180px] pointer-events-none min-w-[500px] max-h-screen !z-40">
               <img src="/images/home.png" alt="Profile" className="w-full h-auto" />
             </div>
 
