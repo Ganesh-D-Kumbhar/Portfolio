@@ -62,9 +62,9 @@ function App() {
         await axios.get("https://portfolio-form-backend-t69y.onrender.com/api/wake-up", {
           timeout: 5000, // Don't wait too long
         });
-        console.log("✅ Wake-up ping sent successfully");
+        // console.log("✅ Wake-up ping sent successfully");
       } catch (err) {
-        console.log("⚠️ Wake-up ping failed. Likely server is cold and starting up.");
+        // console.log("⚠️ Wake-up ping failed. Likely server is cold and starting up.");
       }
     };
 
