@@ -1,4 +1,3 @@
-import { motion } from "framer-motion"
 import { GraduationCap, Calendar, MapPin, Award, BookOpen, Star } from "lucide-react"
 import { AnimatedBackground } from "../skills/AnimatedBackground.jsx"
 
@@ -51,15 +50,12 @@ const EducationSection = () => {
       <AnimatedBackground />
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl font-bold text-white mb-2">Educational <span className="text-indigo-500"> Journey</span></h2>
+        <div className="text-center mb-12 opacity-0 animate-fade-in">
+          <h2 className="text-3xl font-bold text-white mb-2">
+            Educational <span className="text-indigo-500"> Journey</span>
+          </h2>
           <p className="text-gray-400">Academic background & qualifications</p>
-        </motion.div>
+        </div>
 
         {/* Education Timeline */}
         <div className="relative">
@@ -68,18 +64,16 @@ const EducationSection = () => {
 
           <div className="space-y-8">
             {educationData.map((edu, index) => (
-              <motion.div
+              <div
                 key={edu.id}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative"
+                className="relative opacity-0 animate-slide-in"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Timeline Dot */}
                 <div className="absolute left-6 w-3 h-3 bg-indigo-500 rounded-full transform -translate-x-1/2 hidden md:block"></div>
 
                 {/* Content */}
-                <div className="md:ml-16 bg-white/5 border border-gray-800 rounded-2xl p-6 hover:border-indigo-500/30 hover:bg-white/10 transition-all duration-300 group">
+                <div className="md:ml-16 bg-white/5 border border-gray-800 rounded-2xl p-6 hover:border-indigo-500/30 hover:bg-white/10 transition-all duration-300 group hover:scale-105 hover:-translate-y-1">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       {/* Icon & Degree */}
@@ -121,11 +115,10 @@ const EducationSection = () => {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
-
       </div>
     </section>
   )

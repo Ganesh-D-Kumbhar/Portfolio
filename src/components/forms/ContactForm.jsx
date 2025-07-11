@@ -1,5 +1,4 @@
 import { useMemo } from "react"
-import { motion } from "framer-motion"
 import { useFormik } from "formik"
 import * as Yup from "yup"
 import axios from "axios"
@@ -78,34 +77,24 @@ const ContactForm = () => {
   })
 
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5 }}
-      className="relative"
-    >
+    <div className="relative opacity-0 animate-fade-in">
       {/* Decorative Elements */}
       <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-indigo-500/20 to-indigo-600/20 rounded-full blur-2xl" />
       <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-gradient-to-br from-indigo-400/20 to-indigo-500/20 rounded-full blur-2xl" />
 
       <div className="relative bg-gradient-to-br from-gray-900/80 to-gray-800/80 backdrop-blur-xl border border-indigo-500/30 rounded-3xl p-8 shadow-2xl shadow-indigo-500/10">
         {/* Header */}
-        <motion.div
-          className="text-center mb-8"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-        >
+        <div className="text-center mb-8 opacity-0 animate-slide-in" style={{ animationDelay: "200ms" }}>
           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-3xl mb-4 shadow-lg shadow-indigo-500/30">
             <MessageSquare className="w-10 h-10 text-white" />
           </div>
           <h2 className="text-3xl font-bold text-white mb-2">Let's Connect</h2>
-        </motion.div>
+        </div>
 
         <form onSubmit={formik.handleSubmit} className="space-y-6">
           {/* Name and Email Row */}
           <div className="grid md:grid-cols-2 gap-6">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }}>
+            <div className="opacity-0 animate-slide-in" style={{ animationDelay: "300ms" }}>
               <label className="block text-indigo-300 font-semibold mb-3">Full Name</label>
               <div className="relative group">
                 <User className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-indigo-400 group-focus-within:text-indigo-300 transition-colors" />
@@ -117,24 +106,19 @@ const ContactForm = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   disabled={formik.isSubmitting}
-                  className={`w-full bg-gray-800/60 border-2 rounded-2xl pl-12 pr-4 py-4 text-white placeholder-gray-400 focus:outline-none transition-all duration-200 ${formik.touched.fullName && formik.errors.fullName
+                  className={`w-full bg-gray-800/60 border-2 rounded-2xl pl-12 pr-4 py-4 text-white placeholder-gray-400 focus:outline-none transition-all duration-200 ${
+                    formik.touched.fullName && formik.errors.fullName
                       ? "border-red-400 focus:border-red-400 focus:shadow-lg focus:shadow-red-500/20"
                       : "border-indigo-500/30 focus:border-indigo-400 focus:shadow-lg focus:shadow-indigo-500/20 hover:border-indigo-400/50"
-                    }`}
+                  }`}
                 />
                 {formik.touched.fullName && formik.errors.fullName && (
-                  <motion.p
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="text-red-400 text-sm mt-2"
-                  >
-                    {formik.errors.fullName}
-                  </motion.p>
+                  <p className="text-red-400 text-sm mt-2 opacity-0 animate-fade-in">{formik.errors.fullName}</p>
                 )}
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }}>
+            <div className="opacity-0 animate-slide-in" style={{ animationDelay: "400ms" }}>
               <label className="block text-indigo-300 font-semibold mb-3">Email Address</label>
               <div className="relative group">
                 <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-indigo-400 group-focus-within:text-indigo-300 transition-colors" />
@@ -146,27 +130,22 @@ const ContactForm = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   disabled={formik.isSubmitting}
-                  className={`w-full bg-gray-800/60 border-2 rounded-2xl pl-12 pr-4 py-4 text-white placeholder-gray-400 focus:outline-none transition-all duration-200 ${formik.touched.email && formik.errors.email
+                  className={`w-full bg-gray-800/60 border-2 rounded-2xl pl-12 pr-4 py-4 text-white placeholder-gray-400 focus:outline-none transition-all duration-200 ${
+                    formik.touched.email && formik.errors.email
                       ? "border-red-400 focus:border-red-400 focus:shadow-lg focus:shadow-red-500/20"
                       : "border-indigo-500/30 focus:border-indigo-400 focus:shadow-lg focus:shadow-indigo-500/20 hover:border-indigo-400/50"
-                    }`}
+                  }`}
                 />
                 {formik.touched.email && formik.errors.email && (
-                  <motion.p
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="text-red-400 text-sm mt-2"
-                  >
-                    {formik.errors.email}
-                  </motion.p>
+                  <p className="text-red-400 text-sm mt-2 opacity-0 animate-fade-in">{formik.errors.email}</p>
                 )}
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Phone and Subject Row */}
           <div className="grid md:grid-cols-2 gap-6">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }}>
+            <div className="opacity-0 animate-slide-in" style={{ animationDelay: "500ms" }}>
               <label className="block text-indigo-300 font-semibold mb-3">Mobile Number</label>
               <div className="relative group">
                 <Phone className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-indigo-400 group-focus-within:text-indigo-300 transition-colors" />
@@ -178,25 +157,20 @@ const ContactForm = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   disabled={formik.isSubmitting}
-                  className={`w-full bg-gray-800/60 border-2 rounded-2xl pl-12 pr-4 py-4 text-white placeholder-gray-400 focus:outline-none transition-all duration-200 ${formik.touched.mobNo && formik.errors.mobNo
+                  className={`w-full bg-gray-800/60 border-2 rounded-2xl pl-12 pr-4 py-4 text-white placeholder-gray-400 focus:outline-none transition-all duration-200 ${
+                    formik.touched.mobNo && formik.errors.mobNo
                       ? "border-red-400 focus:border-red-400 focus:shadow-lg focus:shadow-red-500/20"
                       : "border-indigo-500/30 focus:border-indigo-400 focus:shadow-lg focus:shadow-indigo-500/20 hover:border-indigo-400/50"
-                    }`}
+                  }`}
                 />
                 {formik.touched.mobNo && formik.errors.mobNo && (
-                  <motion.p
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="text-red-400 text-sm mt-2"
-                  >
-                    {formik.errors.mobNo}
-                  </motion.p>
+                  <p className="text-red-400 text-sm mt-2 opacity-0 animate-fade-in">{formik.errors.mobNo}</p>
                 )}
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }}>
-              <label className="block text-indigo-300 font-semibold mb-3">City</label>
+            <div className="opacity-0 animate-slide-in" style={{ animationDelay: "600ms" }}>
+              <label className="block text-indigo-300 font-semibold mb-3">Subject</label>
               <div className="relative group">
                 <FileText className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-indigo-400 group-focus-within:text-indigo-300 transition-colors" />
                 <input
@@ -207,79 +181,68 @@ const ContactForm = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   disabled={formik.isSubmitting}
-                  className={`w-full bg-gray-800/60 border-2 rounded-2xl pl-12 pr-4 py-4 text-white placeholder-gray-400 focus:outline-none transition-all duration-200 ${formik.touched.city && formik.errors.city
+                  className={`w-full bg-gray-800/60 border-2 rounded-2xl pl-12 pr-4 py-4 text-white placeholder-gray-400 focus:outline-none transition-all duration-200 ${
+                    formik.touched.city && formik.errors.city
                       ? "border-red-400 focus:border-red-400 focus:shadow-lg focus:shadow-red-500/20"
                       : "border-indigo-500/30 focus:border-indigo-400 focus:shadow-lg focus:shadow-indigo-500/20 hover:border-indigo-400/50"
-                    }`}
+                  }`}
                 />
                 {formik.touched.city && formik.errors.city && (
-                  <motion.p
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="text-red-400 text-sm mt-2"
-                  >
-                    {formik.errors.city}
-                  </motion.p>
+                  <p className="text-red-400 text-sm mt-2 opacity-0 animate-fade-in">{formik.errors.city}</p>
                 )}
               </div>
-            </motion.div>
+            </div>
           </div>
 
-          {/* Message Field */}
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}>
-            <label className="block text-indigo-300 font-semibold mb-3">Your Message</label>
+          {/* Message */}
+          <div className="opacity-0 animate-slide-in" style={{ animationDelay: "700ms" }}>
+            <label className="block text-indigo-300 font-semibold mb-3">Message</label>
             <div className="relative group">
               <MessageCircle className="absolute left-4 top-6 w-5 h-5 text-indigo-400 group-focus-within:text-indigo-300 transition-colors" />
               <textarea
                 name="msg"
-                rows={6}
-                placeholder="Enter your message here..."
+                rows={5}
+                placeholder="Tell me about your project or just say hello..."
                 value={formik.values.msg}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 disabled={formik.isSubmitting}
-                className={`w-full bg-gray-800/60 border-2 rounded-2xl pl-12 pr-4 py-4 text-white placeholder-gray-400 focus:outline-none transition-all duration-200 resize-none ${formik.touched.msg && formik.errors.msg
+                className={`w-full bg-gray-800/60 border-2 rounded-2xl pl-12 pr-4 py-4 text-white placeholder-gray-400 focus:outline-none resize-none transition-all duration-200 ${
+                  formik.touched.msg && formik.errors.msg
                     ? "border-red-400 focus:border-red-400 focus:shadow-lg focus:shadow-red-500/20"
                     : "border-indigo-500/30 focus:border-indigo-400 focus:shadow-lg focus:shadow-indigo-500/20 hover:border-indigo-400/50"
-                  }`}
+                }`}
               />
               {formik.touched.msg && formik.errors.msg && (
-                <motion.p
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-red-400 text-sm mt-2"
-                >
-                  {formik.errors.msg}
-                </motion.p>
+                <p className="text-red-400 text-sm mt-2 opacity-0 animate-fade-in">{formik.errors.msg}</p>
               )}
             </div>
-          </motion.div>
+          </div>
 
           {/* Submit Button */}
-          <motion.button
-            type="submit"
-            disabled={formik.isSubmitting || !formik.isValid}
-            className="w-full relative overflow-hidden bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-8 py-6 rounded-2xl font-bold text-lg shadow-2xl shadow-indigo-500/30 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 group hover:scale-[1.02] active:scale-[0.98]"
-            whileHover={{ boxShadow: "0 25px 50px -12px rgba(99, 102, 241, 0.4)" }}
-          >
-            <div className="relative flex items-center justify-center">
+          <div className="opacity-0 animate-slide-in" style={{ animationDelay: "800ms" }}>
+            <button
+              type="submit"
+              disabled={formik.isSubmitting}
+              className="w-full bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white font-bold py-5 px-8 rounded-2xl transition-all duration-300 flex items-center justify-center space-x-3 shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/50 disabled:opacity-70 disabled:cursor-not-allowed hover:scale-105 active:scale-95"
+            >
               {formik.isSubmitting ? (
                 <>
-                  <Loader2 className="w-6 h-6 mr-3 animate-spin" />
-                  <span>Submitting...</span>
+                  <Loader2 className="w-6 h-6 animate-spin" />
+                  <span>Sending Message...</span>
                 </>
               ) : (
                 <>
-                  <Send className="w-6 h-6 mr-3 group-hover:translate-x-1 transition-transform duration-200" />
+                  <Send className="w-6 h-6" />
                   <span>Send Message</span>
-                  <Sparkles className="w-5 h-5 ml-3 group-hover:rotate-12 transition-transform duration-200" />
+                  <Sparkles className="w-5 h-5" />
                 </>
               )}
-            </div>
-          </motion.button>
+            </button>
+          </div>
         </form>
       </div>
-    </motion.div>
+    </div>
   )
 }
 

@@ -137,3 +137,233 @@
 .Toastify__progress-bar--success {
   background: #00cc00 !important;  /* Bright green progress bar */
 }
+
+
+
+
+
+
+
+
+/* ************************************ */
+
+/* Fade In Animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+/* Slide In Animation */
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.8s ease-out forwards;
+}
+
+/* Slide Up Animation */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out forwards;
+}
+
+/* Scale In Animation */
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.6s ease-out forwards;
+}
+
+/* Progress Bar Animation */
+@keyframes progress-bar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 90%;
+  }
+}
+
+.animate-progress-bar {
+  animation: progress-bar 1.5s ease-out forwards;
+}
+
+/* Expand Animation */
+@keyframes expand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 8rem;
+  }
+}
+
+.animate-expand {
+  animation: expand 1s ease-out forwards;
+}
+
+/* Float Animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 3s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+/* Rotate 360 Animation */
+@keyframes rotate-360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hover\:rotate-360:hover {
+  animation: rotate-360 0.6s ease-in-out;
+}
+
+/* Pulse Animation (Enhanced) */
+@keyframes pulse-enhanced {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-enhanced {
+  animation: pulse-enhanced 2s ease-in-out infinite;
+}
+
+/* Bounce Animation */
+@keyframes bounce-gentle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 1s ease-in-out infinite;
+}
+
+/* Glow Animation */
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(117, 78, 249, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(117, 78, 249, 0.6);
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Shake Animation */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Typing Animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-typing {
+  animation: typing 2s steps(20, end) forwards;
+}
+
+/* Gradient Animation */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}

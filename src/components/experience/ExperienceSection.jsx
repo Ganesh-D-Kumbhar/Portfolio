@@ -1,38 +1,25 @@
-import { motion } from "framer-motion"
-import { Calendar, MapPin, Building, TrendingUp, CheckCircle } from "lucide-react"
+import { Calendar, MapPin, Code, Briefcase, Trophy, Zap, ExternalLink } from "lucide-react"
 import { AnimatedBackground } from "../skills/AnimatedBackground.jsx"
 
 const ExperienceSection = () => {
   const experiences = [
     {
       id: 1,
-      company: "Seven Mentor Corporate Services",
-      position: "ReactJs Developer",
-      type: "Full Time",
+      title: "ReactJs Developer",
+      company: "Seven Mentor Pvt. Ltd.",
       location: "Pune, Maharashtra",
-      duration: "Feb 2025 – Present",
-      status: "Current",
+      duration: "October 2024 – Present",
+      type: "Full-time",
+      description:
+        "Working on modern web applications using React.js, developing user interfaces and implementing responsive designs.",
+      technologies: ["React.js", "JavaScript", "HTML5", "CSS3", "Git"],
       achievements: [
-        "Led technical problem-solving with 15% bug reduction",
-        "Enhanced workflows with Vite, 10% faster builds",
-        "Conducted code reviews for scalability",
+        "Developed responsive web applications",
+        "Collaborated with cross-functional teams",
+        "Implemented modern UI/UX designs",
       ],
-      skills: ["React.js", "Vite", "Leadership"],
-    },
-    {
-      id: 2,
-      company: "Seven Mentor Corporate Services",
-      position: "ReactJs Developer",
-      type: "Internship",
-      location: "Pune, Maharashtra",
-      duration: "Oct 2024 – Jan 2025",
-      status: "Completed",
-      achievements: [
-        "Built scalable web apps, 25% performance boost",
-        "Real-time issue resolution for client satisfaction",
-        "Optimized development workflows with modern tools",
-      ],
-      skills: ["React.js", "Node.js", "MongoDB"],
+      icon: Code,
+      current: true,
     },
   ]
 
@@ -41,91 +28,121 @@ const ExperienceSection = () => {
       <AnimatedBackground />
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12 opacity-0 animate-fade-in">
           <h2 className="text-3xl font-bold text-white mb-2">
-            <span className="text-indigo-500">1yr </span>Experience In Software Development</h2>
-          <p className="text-gray-400">Professional journey & achievements</p>
-        </motion.div>
+            Professional <span className="text-indigo-500">Experience</span>
+          </h2>
+          <p className="text-gray-400">My journey in the tech industry</p>
+        </div>
 
-        {/* Experience Cards */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={exp.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group"
-            >
-              <div className="bg-white/5 border border-gray-800 rounded-2xl p-6 hover:border-indigo-500/30 hover:bg-white/10 transition-all duration-300">
-                {/* Status & Type */}
-                <div className="flex items-center justify-between mb-4">
-                  <span
-                    className={`px-3 py-1 rounded-full text-xs font-medium  ${
-                      exp.status === "Current"
-                        ? "bg-green-500 text-white animate-pulse"
-                        : "bg-gray-700/50 text-gray-300 border border-gray-600/30"
-                    }`}
-                  >
-                    {exp.status === "Current" ? (
-                      <TrendingUp className="w-3 h-3 inline mr-1 animate-bounce" />
-                    ) : (
-                      <CheckCircle className="w-3 h-3 inline mr-1" />
-                    )}
-                    {exp.status}
-                  </span>
-                  <span className="text-xs text-gray-400 bg-gray-800/50 px-2 py-1 rounded-md">{exp.type}</span>
-                </div>
+        {/* Experience Timeline */}
+        <div className="relative">
+          {/* Timeline Line */}
+          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-indigo-500/30 hidden md:block"></div>
 
-                {/* Position & Company */}
-                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-indigo-300 transition-colors">
-                  {exp.position}
-                </h3>
-                <h4 className="text-indigo-400 font-medium mb-4">{exp.company}</h4>
+          <div className="space-y-8">
+            {experiences.map((exp, index) => (
+              <div
+                key={exp.id}
+                className="relative opacity-0 animate-slide-in"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                {/* Timeline Dot */}
+                <div className="absolute left-6 w-4 h-4 bg-indigo-500 rounded-full transform -translate-x-1/2 hidden md:block border-2 border-indigo-300 shadow-lg shadow-indigo-500/50"></div>
 
-                {/* Duration & Location */}
-                <div className="flex items-center gap-4 mb-4 text-sm text-gray-400">
-                  <div className="flex items-center">
-                    <Calendar className="w-4 h-4 mr-1" />
-                    {exp.duration}
+                {/* Content */}
+                <div className="md:ml-16 bg-gradient-to-br from-gray-900/80 to-gray-800/80 border border-indigo-500/30 rounded-3xl p-8 hover:border-indigo-400/50 hover:shadow-2xl hover:shadow-indigo-500/10 transition-all duration-500 group hover:scale-105 hover:-translate-y-2">
+                  {/* Header */}
+                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                    <div className="flex-1">
+                      {/* Title & Company */}
+                      <div className="flex items-start mb-4">
+                        <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-indigo-500/30">
+                          <exp.icon className="w-7 h-7 text-white" />
+                        </div>
+                        <div>
+                          <h3 className="text-2xl font-bold text-white group-hover:text-indigo-300 transition-colors duration-300">
+                            {exp.title}
+                          </h3>
+                          <p className="text-indigo-400 text-lg font-semibold">{exp.company}</p>
+                        </div>
+                      </div>
+
+                      {/* Meta Information */}
+                      <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400 mb-4">
+                        <div className="flex items-center">
+                          <Calendar className="w-4 h-4 mr-2" />
+                          {exp.duration}
+                        </div>
+                        <div className="flex items-center">
+                          <MapPin className="w-4 h-4 mr-2" />
+                          {exp.location}
+                        </div>
+                        <div className="flex items-center">
+                          <Briefcase className="w-4 h-4 mr-2" />
+                          {exp.type}
+                        </div>
+                        {exp.current && (
+                          <div className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full">
+                            <span className="text-green-400 text-xs font-medium">Current</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-center">
-                    <MapPin className="w-4 h-4 mr-1" />
-                    {exp.location}
+
+                  {/* Description */}
+                  <p className="text-gray-300 leading-relaxed mb-6">{exp.description}</p>
+
+                  {/* Technologies */}
+                  <div className="mb-6">
+                    <h4 className="text-white font-semibold mb-3 flex items-center">
+                      <Code className="w-4 h-4 mr-2 text-indigo-400" />
+                      Technologies Used
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {exp.technologies.map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-lg text-sm border border-indigo-500/30 hover:bg-indigo-500/30 hover:scale-105 transition-all duration-200"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
 
-                {/* Achievements */}
-                <div className="mb-4">
-                  <ul className="space-y-2">
-                    {exp.achievements.map((achievement, i) => (
-                      <li key={i} className="flex items-start text-sm text-gray-300">
-                        <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Skills */}
-                <div className="flex flex-wrap gap-2">
-                  {exp.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-2 py-1 bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 rounded-md text-xs font-medium"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                  {/* Achievements */}
+                  <div>
+                    <h4 className="text-white font-semibold mb-3 flex items-center">
+                      <Trophy className="w-4 h-4 mr-2 text-indigo-400" />
+                      Key Achievements
+                    </h4>
+                    <ul className="space-y-2">
+                      {exp.achievements.map((achievement, achIndex) => (
+                        <li key={achIndex} className="flex items-start text-gray-300">
+                          <Zap className="w-4 h-4 text-indigo-400 mr-2 mt-0.5 flex-shrink-0" />
+                          {achievement}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </motion.div>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="text-center mt-12 opacity-0 animate-fade-in" style={{ animationDelay: "200ms" }}>
+          <p className="text-gray-400 mb-4">Interested in working together?</p>
+          <a
+            href="#contact"
+            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white font-semibold rounded-xl hover:from-indigo-600 hover:to-indigo-700 transition-all duration-300 shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/50 hover:scale-105"
+          >
+            <span>Let's Connect</span>
+            <ExternalLink className="w-4 h-4 ml-2" />
+          </a>
         </div>
       </div>
     </section>

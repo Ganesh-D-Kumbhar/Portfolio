@@ -1,6 +1,3 @@
-"use client"
-
-import { motion } from "framer-motion"
 import { ExternalLink, Code, Gamepad2, Home, Shield, CheckSquare, ChevronLeft, ChevronRight } from "lucide-react"
 import useEmblaCarousel from "embla-carousel-react"
 import Autoplay from "embla-carousel-autoplay"
@@ -12,8 +9,7 @@ const Projects = () => {
     {
       image: "/images/quiz-master.webp",
       title: "Quiz Master",
-      description:
-        "Learn and grow with Quiz Master – Quizzes made fun and engaging!",
+      description: "Learn and grow with Quiz Master – Quizzes made fun and engaging!",
       link: "https://ganesh-d-kumbhar.github.io/Quiz-Master/",
       icon: Code,
       category: "Education",
@@ -22,7 +18,8 @@ const Projects = () => {
     {
       image: "/images/quick-cart.webp",
       title: "Quick-Cart",
-      description: "A responsive e-commerce platform with dynamic product listings, cart functionality, and seamless user experience.",
+      description:
+        "A responsive e-commerce platform with dynamic product listings, cart functionality, and seamless user experience.",
       link: "https://quick-cart-silk-theta.vercel.app/",
       icon: Code,
       category: "Productivity",
@@ -31,8 +28,7 @@ const Projects = () => {
     {
       image: "/images/snake-game.webp",
       title: "Snake Game",
-      description:
-        "Relive the classic Snake Game – Fast-paced, fun, and timeless!",
+      description: "Relive the classic Snake Game – Fast-paced, fun, and timeless!",
       link: "https://ganesh-d-kumbhar.github.io/Snake-Game/",
       icon: Gamepad2,
       category: "Game",
@@ -41,8 +37,7 @@ const Projects = () => {
     {
       image: "/images/dream-homes.webp",
       title: "Dream Homes",
-      description:
-        "Explore stunning Dream Homes – Find the perfect place today!",
+      description: "Explore stunning Dream Homes – Find the perfect place today!",
       link: "https://dream-homes-alpha.vercel.app/",
       icon: Home,
       category: "Real Estate",
@@ -51,8 +46,7 @@ const Projects = () => {
     {
       image: "/images/data-ghost.webp",
       title: "Data Ghost",
-      description:
-        "Show off your inner genius with Data Ghost – The ultimate prank!",
+      description: "Show off your inner genius with Data Ghost – The ultimate prank!",
       link: "https://ganesh-d-kumbhar.github.io/Data-Ghost",
       icon: Shield,
       category: "Entertainment",
@@ -61,8 +55,7 @@ const Projects = () => {
     {
       image: "/images/task-tracker.webp",
       title: "Task Tracker",
-      description:
-        "Track and manage your tasks with ease – Stay organized daily!",
+      description: "Track and manage your tasks with ease – Stay organized daily!",
       link: "https://ganesh-d-kumbhar.github.io/Task-Tracker/",
       icon: CheckSquare,
       category: "Productivity",
@@ -76,7 +69,7 @@ const Projects = () => {
     {
       loop: true,
       align: "start",
-      slidesToScroll: 1, // Always scroll one at a time
+      slidesToScroll: 1,
       breakpoints: {
         "(min-width: 768px)": { slidesToScroll: 1 },
         "(min-width: 1024px)": { slidesToScroll: 1 },
@@ -144,13 +137,7 @@ const Projects = () => {
       <AnimatedBackground />
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16 opacity-0 animate-fade-in">
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
             Latest{" "}
             <span className="bg-gradient-to-r from-indigo-400 via-indigo-500 to-indigo-600 bg-clip-text text-transparent">
@@ -159,37 +146,33 @@ const Projects = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-indigo-500 to-indigo-600 mx-auto rounded-full"></div>
           <p className="text-gray-400 mt-6 text-lg max-w-2xl mx-auto">Explore my latest work and creative solutions</p>
-        </motion.div>
+        </div>
 
         {/* Carousel Container */}
         <div className="relative">
           {/* Navigation Buttons */}
-          <div className="absolute top-1/2 -translate-y-1/2 -left-4 z-10 ">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+          <div className="absolute top-1/2 -translate-y-1/2 -left-4 z-10">
+            <button
               onClick={scrollPrev}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
               disabled={prevBtnDisabled}
-              className="p-3 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-indigo-500/25 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 backdrop-blur-sm border border-indigo-400/20 cursor-pointer"
+              className="p-3 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-indigo-500/25 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 backdrop-blur-sm border border-indigo-400/20 cursor-pointer hover:scale-110"
             >
               <ChevronLeft className="w-6 h-6" />
-            </motion.button>
+            </button>
           </div>
 
-          <div className="absolute top-1/2 -translate-y-1/2 -right-8 z-10 ">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+          <div className="absolute top-1/2 -translate-y-1/2 -right-8 z-10">
+            <button
               onClick={scrollNext}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
               disabled={nextBtnDisabled}
-              className="p-3 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-indigo-500/25 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 backdrop-blur-sm border border-indigo-400/20 cursor-pointer"
+              className="p-3 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-indigo-500/25 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 backdrop-blur-sm border border-indigo-400/20 cursor-pointer hover:scale-110"
             >
               <ChevronRight className="w-6 h-6" />
-            </motion.button>
+            </button>
           </div>
 
           {/* Embla Carousel */}
@@ -198,12 +181,14 @@ const Projects = () => {
               {projects.map((project, index) => {
                 const IconComponent = project.icon
                 return (
-                  <div key={index} className="flex-[0_0_100%] min-w-0 pl-4 md:flex-[0_0_50%] lg:flex-[0_0_33.333%] cursor-pointer">
-                    <motion.div
-
+                  <div
+                    key={index}
+                    className="flex-[0_0_100%] min-w-0 pl-4 md:flex-[0_0_50%] lg:flex-[0_0_33.333%] cursor-pointer"
+                  >
+                    <div
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
-                      className="group relative bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl overflow-hidden border border-gray-700 hover:border-indigo-500/50 transition-all duration-500 h-[500px] mx-2"
+                      className="group relative bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl overflow-hidden border border-gray-700 hover:border-indigo-500/50 transition-all duration-500 h-[500px] mx-2 hover:scale-105"
                     >
                       {/* Animated Background Gradient */}
                       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-indigo-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -217,13 +202,9 @@ const Projects = () => {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
                         <div className="absolute top-4 right-4">
-                          <motion.div
-                            whileHover={{ rotate: 360 }}
-                            transition={{ duration: 0.5 }}
-                            className="p-2 bg-black/60 rounded-full backdrop-blur-md border border-indigo-400/30 shadow-lg"
-                          >
+                          <div className="p-2 bg-black/60 rounded-full backdrop-blur-md border border-indigo-400/30 shadow-lg hover:rotate-360 transition-transform duration-500">
                             <IconComponent className="w-5 h-5 text-indigo-400" />
-                          </motion.div>
+                          </div>
                         </div>
 
                         {/* Overlay Pattern */}
@@ -245,35 +226,32 @@ const Projects = () => {
                         {/* Tech Stack */}
                         <div className="flex flex-wrap gap-2 mb-6">
                           {project.tech.map((tech, techIndex) => (
-                            <motion.span
+                            <span
                               key={techIndex}
-                              whileHover={{ scale: 1.05 }}
-                              className="px-2 py-1 text-xs bg-gray-800/80 text-gray-300 rounded-md border border-gray-600 hover:border-indigo-500/50 hover:text-indigo-300 transition-all duration-300 backdrop-blur-sm"
+                              className="px-2 py-1 text-xs bg-gray-800/80 text-gray-300 rounded-md border border-gray-600 hover:border-indigo-500/50 hover:text-indigo-300 transition-all duration-300 backdrop-blur-sm hover:scale-105"
                             >
                               {tech}
-                            </motion.span>
+                            </span>
                           ))}
                         </div>
 
                         {/* Action Button */}
-                        <motion.a
+                        <a
                           href={project.link}
                           target="_blank"
                           rel="noreferrer"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white text-sm font-semibold rounded-xl hover:from-indigo-600 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-indigo-500/30 border border-indigo-400/20 cursor-pointer"
+                          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white text-sm font-semibold rounded-xl hover:from-indigo-600 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-indigo-500/30 border border-indigo-400/20 cursor-pointer hover:scale-105"
                         >
                           <span>View Project</span>
                           <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                        </motion.a>
+                        </a>
                       </div>
 
                       {/* Glow Effect */}
                       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                         <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-indigo-500/10 via-transparent to-indigo-600/10"></div>
                       </div>
-                    </motion.div>
+                    </div>
                   </div>
                 )
               })}
@@ -284,47 +262,36 @@ const Projects = () => {
         {/* Dots Indicator */}
         <div className="flex justify-center items-center gap-2 mt-12">
           {scrollSnaps.map((_, index) => (
-            <motion.button
+            <button
               key={index}
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
               onClick={() => scrollTo(index)}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${index === selectedIndex
-                ? "bg-gradient-to-r from-indigo-500 to-indigo-600 shadow-lg shadow-indigo-500/30"
-                : "bg-gray-600 hover:bg-gray-500"
-                }`}
+              className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-120 ${
+                index === selectedIndex
+                  ? "bg-gradient-to-r from-indigo-500 to-indigo-600 shadow-lg shadow-indigo-500/30"
+                  : "bg-gray-600 hover:bg-gray-500"
+              }`}
             />
           ))}
         </div>
 
         {/* Bottom CTA */}
         <div className="w-full flex justify-center mt-4">
-          <motion.a
+          <a
             href="https://github.com/Ganesh-D-Kumbhar"
             target="_blank"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="flex flex-col items-center"
+            className="flex flex-col items-center opacity-0 animate-fade-in"
+            style={{ animationDelay: "400ms" }}
+            rel="noreferrer"
           >
             <p className="text-gray-400 mb-6 text-center">Want to see more of my work?</p>
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 0 30px rgba(99, 102, 241, 0.3)"
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-transparent border-2 border-indigo-500 text-indigo-400 font-semibold rounded-xl hover:bg-indigo-500 hover:border-white hover:text-white transition-all duration-300 backdrop-blur-sm cursor-pointer flex items-center justify-center gap-2 w-[240px]"
-            >
+            <button className="px-8 py-3 bg-transparent border-2 border-indigo-500 text-indigo-400 font-semibold rounded-xl hover:bg-indigo-500 hover:border-white hover:text-white transition-all duration-300 backdrop-blur-sm cursor-pointer flex items-center justify-center gap-2 w-[240px] hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/30">
               <span>View All Projects</span>
               <ExternalLink className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
-            </motion.button>
-          </motion.a>
+            </button>
+          </a>
         </div>
-
       </div>
     </section>
   )

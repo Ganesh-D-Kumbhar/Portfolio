@@ -74,21 +74,6 @@ const Certifications = () => {
     },
   ]
 
-  const skills = [
-    { name: "JavaScript", level: 90 },
-    { name: "React", level: 85 },
-    { name: "MySQL", level: 80 },
-    { name: "Node.js", level: 75 },
-    { name: "Python", level: 70 },
-  ]
-
-  const achievements = [
-    { icon: Trophy, title: "Top Performer", desc: "Ranked in top 10% of candidates" },
-    { icon: Target, title: "100% Success Rate", desc: "All certifications passed on first attempt" },
-    { icon: Zap, title: "Fast Learner", desc: "Completed 6 certifications in 12 months" },
-    { icon: BookOpen, title: "Continuous Learning", desc: "Always pursuing new skills" },
-  ]
-
   const getLevelColor = (level) => {
     switch (level) {
       case "Basic":
@@ -104,16 +89,13 @@ const Certifications = () => {
 
   return (
     <section id="certifications" className="min-h-screen bg-black py-20 px-4 relative overflow-hidden">
-      {/* Enhanced Background Elements */}
-          <AnimatedBackground />
+      <AnimatedBackground />
 
       <div className="max-w-full mx-auto relative z-10">
-        {/* Header Section with Side Content */}
+        {/* Header Section */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 mb-16">
-
           {/* Center - Main Header */}
-          <div className="text-center flex-1">
-
+          <div className="text-center flex-1 opacity-0 animate-fade-in">
             <h2 className="text-5xl md:text-6xl font-black mb-6">
               <span className="text-white">My </span>
               <span className="bg-gradient-to-r from-indigo-400 via-indigo-500 to-indigo-600 bg-clip-text text-transparent">
@@ -144,22 +126,22 @@ const Certifications = () => {
               </div>
             </div>
           </div>
-
         </div>
 
-        {/* Certifications Grid - Now Full Width */}
+        {/* Certifications Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {certifications.map((cert, index) => {
             const IconComponent = cert.icon
             return (
               <div
                 key={index}
-                className="group relative"
+                className="group relative opacity-0 animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
                 {/* Card */}
-                <div className="relative h-full bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm border border-gray-800/50 rounded-3xl p-8 hover:border-indigo-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-2">
+                <div className="relative h-full bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm border border-gray-800/50 rounded-3xl p-8 hover:border-indigo-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-2 hover:scale-105">
                   {/* Glow effect on hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -223,7 +205,7 @@ const Certifications = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-16 opacity-0 animate-fade-in" style={{ animationDelay: "600ms" }}>
           <div className="inline-flex items-center gap-2 text-indigo-400 font-medium">
             <Sparkles className="w-5 h-5" />
             <span>More certifications coming soon</span>
