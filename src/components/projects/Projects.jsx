@@ -1,300 +1,325 @@
-import { ExternalLink, Code, Gamepad2, Home, Shield, CheckSquare, ChevronLeft, ChevronRight } from "lucide-react"
-import useEmblaCarousel from "embla-carousel-react"
-import Autoplay from "embla-carousel-autoplay"
-import { useCallback, useEffect, useState, useRef } from "react"
-import { AnimatedBackground } from "../skills/AnimatedBackground.jsx"
+import { AnimatedBackground } from "../skills/AnimatedBackground.jsx";
+import { useState, useRef, useEffect } from "react";
+import {
+  ExternalLink,
+  Github,
+  Eye,
+  ShoppingCart,
+  Home,
+  ArrowRight,
+  Sparkles,
+  Code,
+  Zap,
+} from "lucide-react";
 
-const Projects = () => {
-  const projects = [
-    {
-      image: "/images/quiz-master.webp",
-      title: "Quiz Master",
-      description: "Learn and grow with Quiz Master – Quizzes made fun and engaging!",
-      link: "https://ganesh-d-kumbhar.github.io/Quiz-Master/",
-      icon: Code,
-      category: "Education",
-      tech: ["HTML", "CSS", "JavaScript"],
-    },
-    {
-      image: "/images/quick-cart.webp",
-      title: "Quick-Cart",
-      description:
-        "A responsive e-commerce platform with dynamic product listings, cart functionality, and seamless user experience.",
-      link: "https://quick-cart-silk-theta.vercel.app/",
-      icon: Code,
-      category: "Productivity",
-      tech: ["React", "CSS", "JavaScript"],
-    },
-    {
-      image: "/images/snake-game.webp",
-      title: "Snake Game",
-      description: "Relive the classic Snake Game – Fast-paced, fun, and timeless!",
-      link: "https://ganesh-d-kumbhar.github.io/Snake-Game/",
-      icon: Gamepad2,
-      category: "Game",
-      tech: ["HTML5", "Canvas", "JavaScript"],
-    },
-    {
-      image: "/images/dream-homes.webp",
-      title: "Dream Homes",
-      description: "Explore stunning Dream Homes – Find the perfect place today!",
-      link: "https://dream-homes-alpha.vercel.app/",
-      icon: Home,
-      category: "Real Estate",
-      tech: ["HTML", "CSS", "JavaScript"],
-    },
-    {
-      image: "/images/data-ghost.webp",
-      title: "Data Ghost",
-      description: "Show off your inner genius with Data Ghost – The ultimate prank!",
-      link: "https://ganesh-d-kumbhar.github.io/Data-Ghost",
-      icon: Shield,
-      category: "Entertainment",
-      tech: ["HTML", "CSS", "JavaScript"],
-    },
-    {
-      image: "/images/task-tracker.webp",
-      title: "Task Tracker",
-      description: "Track and manage your tasks with ease – Stay organized daily!",
-      link: "https://ganesh-d-kumbhar.github.io/Task-Tracker/",
-      icon: CheckSquare,
-      category: "Productivity",
-      tech: ["React", "Local Storage", "CSS"],
-    },
-  ]
+const projects = [
+  {
+    id: 1,
+    title: "Dream Homes",
+    category: "Real Estate Platform",
+    description:
+      "Next-generation real estate platform featuring virtual tours, AI property matching, and comprehensive market analytics.",
+    features: [
+      "Admin Dashboard for Property Management",
+      "User Favorite Properties List",
+      "Profile Update with Image Upload",
+      "Secure Admin Authentication",
+      "Email & WhatsApp Communication Support",
+      "Responsive Contact and Inquiry System",
+    ],
+    technologies: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
+    image: "/public/images/dream-homes.png",
+    liveUrl: "https://dream-homes-fawn.vercel.app/",
+    githubUrl: "https://github.com/Ganesh-D-Kumbhar/Dream-Homes",
+    icon: Home,
+    color: "from-purple-500 to-indigo-600",
+    bgGradient: "from-emerald-500/10 via-teal-500/5 to-cyan-500/10",
+    stats: { properties: "20+", agents: "5+", cities: "5+" },
+  },
+  {
+    id: 2,
+    title: "Quick Cart",
+    category: "E-Commerce Platform",
+    description:
+      "Revolutionary e-commerce solution with AI-powered recommendations, real-time analytics, and seamless payment processing.",
+    features: [
+      "Add to Cart & Wishlist Functionality",
+      "Advanced Property Filtering",
+      "Responsive Design for All Devices",
+      "Secure User Profile Management",
+    ],
+    technologies: ["React.js", "Vite", "REST APIs", "Tailwind CSS"],
+    image: "/public/images/quick-cart.png",
+    liveUrl: "https://quick-cart-silk-theta.vercel.app/",
+    githubUrl: "https://github.com/Ganesh-D-Kumbhar/Quick-Cart",
+    icon: ShoppingCart,
+    color: "from-emerald-500 to-teal-600",
+    bgGradient: "from-purple-500/10 via-indigo-500/5 to-blue-500/10",
+    stats: { users: "10K+", transactions: "$2M+", uptime: "99.9%" },
+  },
+];
 
-  const autoplayRef = useRef(Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: true }))
-
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      loop: true,
-      align: "start",
-      slidesToScroll: 1,
-      breakpoints: {
-        "(min-width: 768px)": { slidesToScroll: 1 },
-        "(min-width: 1024px)": { slidesToScroll: 1 },
-      },
-    },
-    [autoplayRef.current],
-  )
-
-  const [prevBtnDisabled, setPrevBtnDisabled] = useState(false)
-  const [nextBtnDisabled, setNextBtnDisabled] = useState(false)
-  const [selectedIndex, setSelectedIndex] = useState(0)
-  const [scrollSnaps, setScrollSnaps] = useState([])
-  const [isAutoplayPaused, setIsAutoplayPaused] = useState(false)
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev()
-  }, [emblaApi])
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext()
-  }, [emblaApi])
-
-  const scrollTo = useCallback(
-    (index) => {
-      if (emblaApi) emblaApi.scrollTo(index)
-    },
-    [emblaApi],
-  )
-
-  const onInit = useCallback((emblaApi) => {
-    setScrollSnaps(emblaApi.scrollSnapList())
-  }, [])
-
-  const onSelect = useCallback((emblaApi) => {
-    setSelectedIndex(emblaApi.selectedScrollSnap())
-    setPrevBtnDisabled(!emblaApi.canScrollPrev())
-    setNextBtnDisabled(!emblaApi.canScrollNext())
-  }, [])
+export default function ProjectsSection() {
+  const [activeProject, setActiveProject] = useState(0);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
-    if (!emblaApi) return
+    const handleMouseMove = (e) => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        setMousePosition({
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top,
+        });
+      }
+    };
 
-    onInit(emblaApi)
-    onSelect(emblaApi)
-    emblaApi.on("reInit", onInit)
-    emblaApi.on("select", onSelect)
-  }, [emblaApi, onInit, onSelect])
-
-  const handleMouseEnter = useCallback(() => {
-    if (autoplayRef.current) {
-      autoplayRef.current.stop()
-      setIsAutoplayPaused(true)
+    const section = sectionRef.current;
+    if (section) {
+      section.addEventListener("mousemove", handleMouseMove);
+      return () => section.removeEventListener("mousemove", handleMouseMove);
     }
-  }, [])
-
-  const handleMouseLeave = useCallback(() => {
-    if (autoplayRef.current) {
-      autoplayRef.current.play()
-      setIsAutoplayPaused(false)
-    }
-  }, [])
+  }, []);
 
   return (
-    <section className="min-h-screen relative pb-8 bg-black px-4 sm:px-6 lg:px-8" id="projects">
+    <section
+      ref={sectionRef}
+      className="!bg-black min-h-screen relative overflow-hidden"
+    >
       <AnimatedBackground />
-      <div className="max-w-7xl mx-auto">
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Header */}
-        <div className="text-center mb-16 opacity-0 animate-fade-in">
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
-            Latest{" "}
-            <span className="bg-gradient-to-r from-indigo-400 via-indigo-500 to-indigo-600 bg-clip-text text-transparent">
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 backdrop-blur-sm border border-indigo-500/20 rounded-full px-6 py-3 mb-8">
+            <Sparkles className="w-5 h-5 text-indigo-400" />
+            <span className="text-indigo-300 font-medium">Featured Work</span>
+          </div>
+
+          <h1 className="text-7xl font-black mb-6">
+            <span className="bg-gradient-to-r from-white via-indigo-200 to-white bg-clip-text text-transparent">
+              My
+            </span>
+            <span className="bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600 bg-clip-text text-transparent">
               Projects
             </span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-indigo-500 to-indigo-600 mx-auto rounded-full"></div>
-          <p className="text-gray-400 mt-6 text-lg max-w-2xl mx-auto">Explore my latest work and creative solutions</p>
+          </h1>
+
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            Two comprehensive platforms showcasing full-stack expertise and
+            innovative solutions
+          </p>
         </div>
 
-        {/* Carousel Container */}
+        {/* Project Navigation */}
+        <div className="flex justify-center mb-16">
+          <div className="flex bg-gray-900/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-2">
+            {projects.map((project, index) => {
+              const IconComponent = project.icon;
+              return (
+                <button
+                  key={project.id}
+                  onClick={() => setActiveProject(index)}
+                  className={`flex items-center space-x-3 px-6 py-4 rounded-xl transition-all duration-500 ${
+                    activeProject === index
+                      ? `bg-gradient-to-r ${project.color} text-white shadow-lg`
+                      : "text-gray-400 hover:text-white hover:bg-gray-800/50"
+                  }`}
+                >
+                  <IconComponent className="w-5 h-5" />
+                  <span className="font-semibold">{project.title}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Active Project Display */}
         <div className="relative">
-          {/* Navigation Buttons */}
-          <div className="absolute top-1/2 -translate-y-1/2 -left-4 z-10">
-            <button
-              onClick={scrollPrev}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              disabled={prevBtnDisabled}
-              className="p-3 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-indigo-500/25 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 backdrop-blur-sm border border-indigo-400/20 cursor-pointer hover:scale-110"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-          </div>
+          {projects.map((project, index) => {
+            const IconComponent = project.icon;
+            return (
+              <div
+                key={project.id}
+                className={`transition-all duration-1000 ${
+                  activeProject === index
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10 absolute inset-0 pointer-events-none"
+                }`}
+              >
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                  {/* Project Info */}
+                  <div className="space-y-8">
+                    <div>
+                      <div className="flex items-center space-x-4 mb-4">
+                        <div
+                          className={`p-4 bg-gradient-to-br ${project.bgGradient} rounded-2xl border border-gray-700/50`}
+                        >
+                          <IconComponent className="w-8 h-8 text-white" />
+                        </div>
+                        <div>
+                          <h2 className="text-4xl font-bold text-white">
+                            {project.title}
+                          </h2>
+                          <p
+                            className={`text-lg bg-gradient-to-r ${project.color} bg-clip-text text-transparent font-semibold`}
+                          >
+                            {project.category}
+                          </p>
+                        </div>
+                      </div>
 
-          <div className="absolute top-1/2 -translate-y-1/2 -right-8 z-10">
-            <button
-              onClick={scrollNext}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              disabled={nextBtnDisabled}
-              className="p-3 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-indigo-500/25 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 backdrop-blur-sm border border-indigo-400/20 cursor-pointer hover:scale-110"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-          </div>
+                      <p className="text-xl text-gray-300 leading-relaxed">
+                        {project.description}
+                      </p>
+                    </div>
 
-          {/* Embla Carousel */}
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex">
-              {projects.map((project, index) => {
-                const IconComponent = project.icon
-                return (
-                  <div
-                    key={index}
-                    className="flex-[0_0_100%] min-w-0 pl-4 md:flex-[0_0_50%] lg:flex-[0_0_33.333%] cursor-pointer"
-                  >
+                    {/* Stats */}
+                    <div className="grid grid-cols-3 gap-6">
+                      {Object.entries(project.stats).map(([key, value]) => (
+                        <div key={key} className="text-center">
+                          <div
+                            className={`text-2xl font-bold bg-gradient-to-r ${project.color} bg-clip-text text-transparent`}
+                          >
+                            {value}
+                          </div>
+                          <div className="text-sm text-gray-400 capitalize">
+                            {key}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Features */}
+                    <div>
+                      <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
+                        <Zap className="w-5 h-5 mr-2 text-indigo-400" />
+                        Key Features
+                      </h3>
+                      <div className="grid grid-cols-2 gap-3">
+                        {project.features.map((feature, featureIndex) => (
+                          <div
+                            key={featureIndex}
+                            className="flex items-center space-x-3 p-3 bg-gray-900/30 rounded-lg border border-gray-700/30"
+                          >
+                            <div
+                              className={`w-2 h-2 rounded-full bg-gradient-to-r ${project.color}`}
+                            ></div>
+                            <span className="text-gray-300 text-sm">
+                              {feature}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Technologies */}
+                    <div>
+                      <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
+                        <Code className="w-5 h-5 mr-2 text-indigo-400" />
+                        Tech Stack
+                      </h3>
+                      <div className="flex flex-wrap gap-3">
+                        {project.technologies.map((tech, techIndex) => (
+                          <span
+                            key={techIndex}
+                            className={`px-4 py-2 bg-gradient-to-r ${project.bgGradient} border border-gray-700/50 rounded-full text-sm text-gray-200 hover:scale-105 transition-transform duration-300`}
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <a
+                        target="_blank"
+                        href={project.liveUrl}
+                        className={`flex items-center justify-center bg-gradient-to-r ${project.color} hover:scale-105 text-white font-semibold py-4 px-8 rounded-xl shadow-lg transition-all duration-300 group`}
+                      >
+                        <Eye className="w-5 h-5 mr-2" />
+                        View Live Demo
+                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                      </a>
+                      <a
+                        target="_blank"
+                        href={project.githubUrl}
+                        variant="outline"
+                        className="flex border-2 border-gray-600 text-gray-300 hover:text-white hover:bg-gray-800/50 hover:border-gray-500 py-4 px-8 rounded-xl font-semibold transition-all duration-300 bg-transparent"
+                      >
+                        <Github className="w-5 h-5 mr-2" />
+                        Source Code
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Project Image */}
+                  <div className="relative group">
                     <div
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                      className="group relative bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl overflow-hidden border border-gray-700 hover:border-indigo-500/50 transition-all duration-500 h-[500px] mx-2 hover:scale-105"
-                    >
-                      {/* Animated Background Gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-indigo-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                      {/* Image Container */}
-                      <div className="relative h-56 overflow-hidden">
+                      className={`absolute inset-0 bg-gradient-to-br ${project.bgGradient} rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500`}
+                    ></div>
+                    <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl p-2 border border-gray-700/50 group-hover:border-gray-600/50 transition-all duration-500">
+                      <div className="aspect-video rounded-2xl overflow-hidden">
                         <img
                           src={project.image || "/placeholder.svg"}
                           alt={project.title}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
-                        <div className="absolute top-4 right-4">
-                          <div className="p-2 bg-black/60 rounded-full backdrop-blur-md border border-indigo-400/30 shadow-lg hover:rotate-360 transition-transform duration-500">
-                            <IconComponent className="w-5 h-5 text-indigo-400" />
-                          </div>
-                        </div>
-
-                        {/* Overlay Pattern */}
-                        <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500">
-                          <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-transparent"></div>
-                        </div>
                       </div>
 
-                      {/* Content */}
-                      <div className="p-6 relative z-10">
-                        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-indigo-300 transition-colors duration-300">
-                          {project.title}
-                        </h3>
-
-                        <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-3 group-hover:text-gray-300 transition-colors duration-300">
-                          {project.description}
-                        </p>
-
-                        {/* Tech Stack */}
-                        <div className="flex flex-wrap gap-2 mb-6">
-                          {project.tech.map((tech, techIndex) => (
-                            <span
-                              key={techIndex}
-                              className="px-2 py-1 text-xs bg-gray-800/80 text-gray-300 rounded-md border border-gray-600 hover:border-indigo-500/50 hover:text-indigo-300 transition-all duration-300 backdrop-blur-sm hover:scale-105"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-
-                        {/* Action Button */}
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white text-sm font-semibold rounded-xl hover:from-indigo-600 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-indigo-500/30 border border-indigo-400/20 cursor-pointer hover:scale-105"
+                      {/* Floating Action Buttons */}
+                      <div className="absolute top-8 right-8 flex space-x-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                        <button
+                          size="sm"
+                          className={`bg-gradient-to-r ${project.color} text-white rounded-full p-3 shadow-lg hover:scale-110 transition-all duration-300`}
                         >
-                          <span>View Project</span>
-                          <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                          <Eye className="w-4 h-4" />
+                        </button>
+                        <a
+                          target="_blank"
+                          href={project.githubUrl}
+                          size="sm"
+                          className="bg-gray-800/80 backdrop-blur-sm text-white rounded-full p-3 hover:scale-110 transition-all duration-300"
+                        >
+                          <Github className="w-4 h-4" />
                         </a>
-                      </div>
-
-                      {/* Glow Effect */}
-                      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-indigo-500/10 via-transparent to-indigo-600/10"></div>
+                        <a
+                          target="_blank"
+                          href={project.liveUrl}
+                          size="sm"
+                          className="bg-gray-800/80 backdrop-blur-sm text-white rounded-full p-3 hover:scale-110 transition-all duration-300"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
                       </div>
                     </div>
                   </div>
-                )
-              })}
-            </div>
-          </div>
-        </div>
-
-        {/* Dots Indicator */}
-        <div className="flex justify-center items-center gap-2 mt-12">
-          {scrollSnaps.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => scrollTo(index)}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-120 ${
-                index === selectedIndex
-                  ? "bg-gradient-to-r from-indigo-500 to-indigo-600 shadow-lg shadow-indigo-500/30"
-                  : "bg-gray-600 hover:bg-gray-500"
-              }`}
-            />
-          ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         {/* Bottom CTA */}
-        <div className="w-full flex justify-center mt-4">
-          <a
-            href="https://github.com/Ganesh-D-Kumbhar"
-            target="_blank"
-            className="flex flex-col items-center opacity-0 animate-fade-in"
-            style={{ animationDelay: "400ms" }}
-            rel="noreferrer"
-          >
-            <p className="text-gray-400 mb-6 text-center">Want to see more of my work?</p>
-            <button className="px-8 py-3 bg-transparent border-2 border-indigo-500 text-indigo-400 font-semibold rounded-xl hover:bg-indigo-500 hover:border-white hover:text-white transition-all duration-300 backdrop-blur-sm cursor-pointer flex items-center justify-center gap-2 w-[240px] hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/30">
-              <span>View All Projects</span>
-              <ExternalLink className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
-            </button>
-          </a>
-        </div>
+        {/* <div className="text-center mt-32">
+          <div className="inline-block relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-3xl blur-xl"></div>
+            <div className="relative bg-gradient-to-br from-gray-900/80 via-gray-800/80 to-black/80 backdrop-blur-xl border border-gray-700/50 rounded-3xl p-12">
+              <h3 className="text-3xl font-bold text-white mb-4">
+                Ready to Build Something Amazing?
+              </h3>
+              <p className="text-gray-400 text-lg mb-8 max-w-lg">
+                Let's collaborate and create the next breakthrough digital
+                experience together.
+              </p>
+              <button className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl shadow-lg hover:scale-105 transition-all duration-300">
+                Start a Project
+              </button>
+            </div>
+          </div>
+        </div> */}
       </div>
     </section>
-  )
+  );
 }
-
-export default Projects
