@@ -11,6 +11,8 @@ import {
   Code,
   Zap,
 } from "lucide-react";
+import dreamHomesImage from "../../../public/images/dream-homes.png";
+import quickCartImage from "../../../public/images/quick-cart.png";
 
 const projects = [
   {
@@ -28,7 +30,7 @@ const projects = [
       "Responsive Contact and Inquiry System",
     ],
     technologies: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
-    image: "/public/images/dream-homes.png",
+    image: dreamHomesImage,
     liveUrl: "https://dream-homes-fawn.vercel.app/",
     githubUrl: "https://github.com/Ganesh-D-Kumbhar/Dream-Homes",
     icon: Home,
@@ -49,7 +51,7 @@ const projects = [
       "Secure User Profile Management",
     ],
     technologies: ["React.js", "Vite", "REST APIs", "Tailwind CSS"],
-    image: "/public/images/quick-cart.png",
+    image: quickCartImage,
     liveUrl: "https://quick-cart-silk-theta.vercel.app/",
     githubUrl: "https://github.com/Ganesh-D-Kumbhar/Quick-Cart",
     icon: ShoppingCart,
